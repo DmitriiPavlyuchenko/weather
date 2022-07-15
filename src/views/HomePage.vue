@@ -1,5 +1,10 @@
 <template>
-  <div class="test _icon-search">Hello World</div>
+  <div class="weather">
+    <div class="weather__container container">
+      <div class="weather__display"></div>
+      <div class="weather__main"></div>
+    </div>
+  </div>
 </template>
 
 <script>

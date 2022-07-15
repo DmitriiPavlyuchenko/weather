@@ -1,0 +1,19 @@
+.weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  &__container {
+    border: 1px solid black;
+    display: flex;
+  }
+
+  &__display {
+    flex: 0 1 60%;
+  }
+
+  &__main {
+    flex: 0 1 40%;
+  }
+}
