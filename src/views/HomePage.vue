@@ -1,15 +1,19 @@
 <template>
   <div class="weather">
     <div class="weather__container container">
-      <div class="weather__display"></div>
-      <div class="weather__main"></div>
+      <DisplayPage></DisplayPage>
+      <MainPage></MainPage>
     </div>
   </div>
 </template>
 
 <script>
+import DisplayPage from "@/views/DisplayPage";
+import MainPage from "@/views/MainPage";
+
 export default {
   name: "HomePage",
+  components: { MainPage, DisplayPage },
 };
 </script>
 

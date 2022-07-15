@@ -1,3 +1,18 @@
-
+.weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.weather__container {
+  border: 1px solid black;
+  display: flex;
+}
+.weather__display {
+  flex: 0 1 60%;
+}
+.weather__main {
+  flex: 0 1 40%;
+}
 
 /*# sourceMappingURL=home-page.css.map */

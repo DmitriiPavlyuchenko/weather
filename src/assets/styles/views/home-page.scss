@@ -3,17 +3,12 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: $white-background;
 
   &__container {
     border: 1px solid black;
     display: flex;
-  }
-
-  &__display {
-    flex: 0 1 60%;
-  }
-
-  &__main {
-    flex: 0 1 40%;
+    height: 500px;
+    background: linear-gradient(250deg, $purple-lite 0%, $purple-dark 100%);
   }
 }

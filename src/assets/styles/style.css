@@ -485,16 +485,13 @@ textarea {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: rgba(162, 162, 162, 0.32);
 }
 .weather__container {
   border: 1px solid black;
   display: flex;
-}
-.weather__display {
-  flex: 0 1 60%;
-}
-.weather__main {
-  flex: 0 1 40%;
+  height: 500px;
+  background: linear-gradient(250deg, #8C6EAB 0%, #48355B 100%);
 }
 
 /*# sourceMappingURL=style.css.map */
