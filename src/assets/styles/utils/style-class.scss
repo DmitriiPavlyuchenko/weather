@@ -1,12 +1,11 @@
 .input {
-  color: $black;
+  color: $white;
   font-size: 0.8em;
-  padding: .2rem;
-  border-radius: .3em 0 0 .3em;
+  padding: .65rem;
   border: none;
 }
 
 .input::placeholder {
-  font-size: 0.7em;
-  color: $grey;
+  font-size: 0.8em;
+  color: #f3f3f3;
 }

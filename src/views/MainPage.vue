@@ -1,7 +1,15 @@
 <template>
   <div class="main">
     <FormSearchApp></FormSearchApp>
-    <ButtonBase class="main__form-open button"></ButtonBase>
+    <ButtonBase class="main__form-open button" type="button">
+      <img
+        alt="Search"
+        class="main__search"
+        height="26"
+        src="@/assets/img/icons/search.svg"
+        width="25"
+      />
+    </ButtonBase>
   </div>
 </template>
 
