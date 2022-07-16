@@ -1,26 +1,17 @@
 <template>
   <div class="main">
-    <FormSearchApp></FormSearchApp>
-    <ButtonBase class="main__form-open button" type="button">
-      <img
-        alt="Search"
-        class="main__search"
-        height="26"
-        src="@/assets/img/icons/search.svg"
-        width="25"
-      />
-    </ButtonBase>
+    <header class="main__header header">
+      <HeaderApp></HeaderApp>
+    </header>
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import FormSearchApp from "@/components/FormSearchApp.vue";
+import HeaderApp from "@/components/HeaderApp";
 
-export default defineComponent({
+export default {
   name: "MainPage",
-  components: { FormSearchApp },
-});
+  components: { HeaderApp },
+};
 </script>
-
 <style scoped></style>

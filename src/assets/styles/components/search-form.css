@@ -1,5 +1,23 @@
+.search-form {
+  position: relative;
+  display: flex;
+}
+.search-form__search-field {
+  background: linear-gradient(116.79deg, rgba(255, 255, 255, 0.48) -41.94%, rgba(255, 255, 255, 0.12) 57.51%);
+  border-radius: 0.71em;
+}
 .search-form__search {
+  width: 20%;
+  top: 0;
   background-color: inherit;
+  bottom: 0;
+  right: 0;
+  border-top-right-radius: 0.71em;
+  border-bottom-right-radius: 0.71em;
+  position: absolute;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=search-form.css.map */
