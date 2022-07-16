@@ -7,7 +7,7 @@
     @submit.prevent
   >
     <InputBase
-      v-model="inputValue"
+      v-model.capitalize="inputValue"
       class="search-form__search-field input"
       placeholder="Введите город"
       type="text"
