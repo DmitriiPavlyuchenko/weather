@@ -468,7 +468,6 @@ textarea {
 .container {
   width: 1350px;
   margin: 0 auto;
-  padding: 0 25px;
   max-width: 100%;
 }
 @media (max-width: 1300px) {
@@ -506,16 +505,27 @@ textarea {
   background: linear-gradient(250deg, #8C6EAB 0%, #48355B 100%);
 }
 
+.main {
+  flex: 0 1 40%;
+  padding: 40px;
+}
+
+.display {
+  flex: 0 1 60%;
+}
+
 .search-form {
   position: relative;
   display: flex;
+  width: 100%;
 }
 .search-form__search-field {
   background: linear-gradient(116.79deg, rgba(255, 255, 255, 0.48) -41.94%, rgba(255, 255, 255, 0.12) 57.51%);
   border-radius: 0.71em;
+  width: 100%;
 }
 .search-form__search {
-  width: 20%;
+  padding: 0.695em;
   top: 0;
   background-color: inherit;
   bottom: 0;
@@ -533,7 +543,8 @@ textarea {
   align-items: center;
 }
 .city__map {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.65rem;
+  background-color: inherit;
 }
 .city__name {
   font-size: 1.15rem;
@@ -544,6 +555,7 @@ textarea {
 
 .header {
   display: flex;
+  justify-content: space-between;
 }
 .header__form-open {
   display: flex;
