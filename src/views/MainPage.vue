@@ -1,8 +1,6 @@
 <template>
   <div class="main">
-    <header class="main__header header">
-      <HeaderApp></HeaderApp>
-    </header>
+    <HeaderApp></HeaderApp>
   </div>
 </template>
 
