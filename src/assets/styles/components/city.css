@@ -1,5 +1,15 @@
+.city {
+  display: flex;
+  align-items: center;
+}
 .city__map {
-  background-image: url("@/assets/img/icons/map.svg");
+  margin-bottom: 0.35rem;
+}
+.city__name {
+  font-size: 1.15rem;
+  text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
+  align-self: center;
+  padding-left: 31px;
 }
 
 /*# sourceMappingURL=city.css.map */
