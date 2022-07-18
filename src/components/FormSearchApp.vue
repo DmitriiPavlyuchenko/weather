@@ -7,6 +7,7 @@
       type="text"
     ></InputBase>
     <ButtonBase
+      :disabled="isCityNameEmpty"
       class="search-form__search button"
       type="submit"
       @click="getCityWeather"
@@ -40,6 +41,11 @@ export default defineComponent({
     return {
       cityName: "",
     };
+  },
+  computed: {
+    isCityNameEmpty() {
+      return this.cityName.length <= 1;
+    },
   },
   methods: {
     ...mapActions(weather, { requestCityWeather: "getCityWeather" }),
