@@ -7,7 +7,7 @@
     @submit.prevent
   >
     <InputBase
-      v-model.capitalize="inputValue"
+      v-model.capitalize="cityName"
       class="search-form__search-field input"
       placeholder="Введите город"
       type="text"
@@ -28,6 +28,7 @@
 
 <script>
 import { defineComponent } from "vue";
+import { API } from "@/constants/api";
 
 export default defineComponent({
   name: "FormSearchApp",
@@ -41,12 +42,16 @@ export default defineComponent({
   emits: ["closeForm"],
   data() {
     return {
-      inputValue: "",
+      cityName: "",
     };
   },
   methods: {
     closeForm() {
       this.$emit("closeForm", true);
+    },
+    getCityWeather() {
+      const cityName = this.cityName;
+      const URL = API.getWeatherPath;
     },
   },
 });
