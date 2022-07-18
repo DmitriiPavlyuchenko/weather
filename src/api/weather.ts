@@ -1,3 +1,3 @@
-const getWeather = async (URL: string) => {
+export const getCityWeather = async (URL: string): Promise<object> => {
   return await fetch(URL);
 };

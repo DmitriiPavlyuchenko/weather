@@ -15,7 +15,7 @@
     <ButtonBase
       class="search-form__search button"
       type="submit"
-      @click="closeForm"
+      @click="getCityWeather"
       ><img
         alt="Search"
         class="main__search"
@@ -28,7 +28,9 @@
 
 <script>
 import { defineComponent } from "vue";
+import { mapActions } from "pinia";
 import { API } from "@/constants/api";
+import weather from "@/store/weather";
 
 export default defineComponent({
   name: "FormSearchApp",
@@ -46,12 +48,20 @@ export default defineComponent({
     };
   },
   methods: {
+    ...mapActions(weather, { requestCityWeather: "getCityWeather" }),
     closeForm() {
       this.$emit("closeForm", true);
     },
-    getCityWeather() {
-      const cityName = this.cityName;
-      const URL = API.getWeatherPath;
+    async getCityWeather() {
+      try {
+        const cityName = this.cityName;
+        const serverUrl = API.getWeatherPath;
+        const URL = `${serverUrl}?q=${cityName}&appid=${API.apiKey}`;
+        const result = await this.requestCityWeather(URL);
+        console.log(result);
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 });
