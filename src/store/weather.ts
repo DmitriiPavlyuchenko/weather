@@ -9,6 +9,7 @@ export default defineStore("weather", {
     return {
       currentCity: "Saint-Petersburg",
       cities: [],
+      cityData: {},
     };
   },
   getters: {},
@@ -21,6 +22,7 @@ export default defineStore("weather", {
         if (request.status === SERVER_CODE.STATUS_SUCCESS) {
           this.currentCity = cityName;
           this.cities.push(cityName);
+          this.cityData = result;
           return result;
         }
       } catch (error: unknown) {
