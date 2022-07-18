@@ -53,6 +53,7 @@ export default defineComponent({
         const URL = `${serverUrl}?q=${cityName}&appid=${API.apiKey}`;
         const result = await this.requestCityWeather(URL);
         if (result.cod === SERVER_CODE.STATUS_SUCCESS) {
+          this.cityName = "";
           this.closeForm();
         }
       } catch (e) {

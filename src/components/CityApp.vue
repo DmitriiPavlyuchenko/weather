@@ -7,21 +7,28 @@
       src="@/assets/img/icons/map.svg"
       width="35"
     />
-    <span class="city__name">Kek</span>
+    <span class="city__name">{{ currentCity }}</span>
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
+import { mapState } from "pinia";
+import weather from "@/store/weather";
 
 export default defineComponent({
-  name: "CityApp",
+  data() {
+    return {
+      city: this.currentCity,
+    };
+  },
   props: {
     isOpen: {
       type: Boolean,
       required: true,
     },
   },
+  computed: { ...mapState(weather, { currentCity: "currentCity" }) },
 });
 </script>
 
