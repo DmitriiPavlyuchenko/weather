@@ -583,15 +583,9 @@ textarea {
   text-align: center;
   padding: 15px;
 }
-.clock__wrapper_golden-hour {
-  padding: 35px 15px;
-}
 .clock__arrows {
   padding-top: 54px;
   position: relative;
-}
-.clock__arrows_golden-hour {
-  padding-top: 70px;
 }
 .clock__arrow {
   display: block;
@@ -607,11 +601,6 @@ textarea {
   left: 35px;
   bottom: 20px;
 }
-.clock__arrow_purple-golden-hour {
-  width: 65px;
-  bottom: 27px;
-  left: 50px;
-}
 .clock__arrow_white {
   border: 3px solid #EEECEC;
   background-color: #EEECEC;
@@ -621,22 +610,12 @@ textarea {
   bottom: 10px;
   z-index: 1;
 }
-.clock__arrow_white-golden-hour {
-  width: 40px;
-  bottom: 15px;
-  left: 35px;
-}
 .clock__arrow_brown {
   border: 3px solid #828282;
   background-color: #828282;
   transform: rotate(-180deg);
   width: 45px;
   left: 4px;
-}
-.clock__arrow_brown-golden-hour {
-  width: 55px;
-  bottom: 1px;
-  left: 10px;
 }
 .clock__timers {
   padding-top: 1.5rem;
@@ -665,7 +644,7 @@ textarea {
 .day-period {
   display: flex;
   padding-top: 1.9em;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 30px;
 }
 

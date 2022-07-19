@@ -1,18 +1,17 @@
-.weather {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.weather__container {
-  border: 1px solid black;
-  display: flex;
-}
-.weather__display {
-  flex: 0 1 60%;
-}
-.weather__main {
-  flex: 0 1 40%;
-}
+/* Error: Undefined variable.
+ *   ,
+ * 6 |   background-color: $white-background;
+ *   |                     ^^^^^^^^^^^^^^^^^
+ *   '
+ *   home-page.scss 6:21  root stylesheet */
 
-/*# sourceMappingURL=home-page.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a   \2577 \a 6 \2502    background-color: $white-background;\a   \2502                      ^^^^^^^^^^^^^^^^^\a   \2575 \a   home-page.scss 6:21  root stylesheet";
+}

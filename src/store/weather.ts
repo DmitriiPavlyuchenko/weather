@@ -7,12 +7,11 @@ import { SERVER_CODE } from "@/constants/api";
 export default defineStore("weather", {
   state: (): IWeather => {
     return {
-      currentCity: "Saint-Petersburg",
+      currentCity: "",
       cities: [],
       cityData: {},
     };
   },
-  getters: {},
   actions: {
     async getCityWeather(URL: string): Promise<object | unknown> {
       try {

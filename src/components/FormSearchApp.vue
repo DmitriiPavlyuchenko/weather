@@ -26,6 +26,7 @@ import { defineComponent } from "vue";
 import { mapActions } from "pinia";
 import { API, SERVER_CODE } from "@/constants/api";
 import weather from "@/store/weather";
+import { initValues } from "@/constants/values";
 
 export default defineComponent({
   name: "FormSearchApp",
@@ -42,6 +43,9 @@ export default defineComponent({
       cityName: "",
     };
   },
+  created() {
+    this.getCityWeather();
+  },
   computed: {
     isCityNameEmpty() {
       return this.cityName.length <= 1;
@@ -54,7 +58,10 @@ export default defineComponent({
     },
     async getCityWeather() {
       try {
-        const cityName = this.cityName;
+        let cityName = this.cityName;
+        if (cityName === "") {
+          cityName = initValues.SAINT_PETERSBURG;
+        }
         const serverUrl = API.getWeatherPath;
         const URL = `${serverUrl}?q=${cityName}&appid=${API.apiKey}`;
         const result = await this.requestCityWeather(URL);

@@ -1,3 +1,8 @@
-
+.day-period {
+  display: flex;
+  padding-top: 1.9em;
+  justify-content: space-between;
+  gap: 30px;
+}
 
 /*# sourceMappingURL=day-period.css.map */
