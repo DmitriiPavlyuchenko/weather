@@ -501,7 +501,6 @@ textarea {
 .weather__container {
   border: 1px solid black;
   display: flex;
-  height: 500px;
   background: linear-gradient(250deg, #8C6EAB 0%, #48355B 100%);
 }
 
@@ -564,6 +563,108 @@ textarea {
   padding: 0.695em;
   background: linear-gradient(116.79deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.12) 99.45%);
   border-radius: 0.71em;
+}
+.clock {
+  text-align: center;
+  align-self: flex-end;
+}
+.clock__title {
+  text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.clock__wrapper {
+  margin-top: 28px;
+  background: rgba(255, 255, 255, 0.26);
+  border-radius: 100px;
+  text-align: center;
+  padding: 15px;
+}
+.clock__wrapper_golden-hour {
+  padding: 35px 15px;
+}
+.clock__arrows {
+  padding-top: 54px;
+  position: relative;
+}
+.clock__arrows_golden-hour {
+  padding-top: 70px;
+}
+.clock__arrow {
+  display: block;
+  position: absolute;
+  border-radius: 100px;
+  bottom: 0;
+}
+.clock__arrow_purple {
+  border: 2px solid #885ffc;
+  background-color: #885ffc;
+  transform: rotate(125deg);
+  width: 50px;
+  left: 35px;
+  bottom: 20px;
+}
+.clock__arrow_purple-golden-hour {
+  width: 65px;
+  bottom: 27px;
+  left: 50px;
+}
+.clock__arrow_white {
+  border: 3px solid #EEECEC;
+  background-color: #EEECEC;
+  transform: rotate(55deg);
+  width: 30px;
+  left: 24px;
+  bottom: 10px;
+  z-index: 1;
+}
+.clock__arrow_white-golden-hour {
+  width: 40px;
+  bottom: 15px;
+  left: 35px;
+}
+.clock__arrow_brown {
+  border: 3px solid #828282;
+  background-color: #828282;
+  transform: rotate(-180deg);
+  width: 45px;
+  left: 4px;
+}
+.clock__arrow_brown-golden-hour {
+  width: 55px;
+  bottom: 1px;
+  left: 10px;
+}
+.clock__timers {
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.clock__timer_big {
+  font-size: 1.2rem;
+  display: block;
+  white-space: nowrap;
+}
+.clock__timer_small {
+  font-size: 0.8rem;
+  color: #EBEBEB;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+.clock__timer_am {
+  font-size: 0.8rem;
+}
+.clock__timer_pm {
+  font-size: 0.8rem;
+}
+
+.day-period {
+  display: flex;
+  padding-top: 1.9em;
+  justify-content: space-between;
+  gap: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */

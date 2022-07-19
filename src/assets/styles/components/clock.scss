@@ -1,0 +1,112 @@
+.clock {
+  text-align: center;
+  align-self: flex-end;
+
+  &__title {
+    text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
+    font-weight: 400;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  &__wrapper {
+    margin-top: 28px;
+    background: rgba(255, 255, 255, 0.26);
+    border-radius: 100px;
+    text-align: center;
+    padding: 15px;
+  }
+
+  &__wrapper_golden-hour {
+    padding: 35px 15px;
+  }
+
+  &__arrows {
+    padding-top: 54px;
+    position: relative;
+  }
+
+  &__arrows_golden-hour {
+    padding-top: 70px;
+  }
+
+  &__arrow {
+    display: block;
+    position: absolute;
+    border-radius: 100px;
+    bottom: 0;
+  }
+
+  &__arrow_purple {
+    border: 2px solid $purple;
+    background-color: $purple;
+    transform: rotate(125deg);
+    width: 50px;
+    left: 35px;
+    bottom: 20px;
+  }
+
+  &__arrow_purple-golden-hour {
+    width: 65px;
+    bottom: 27px;
+    left: 50px;
+  }
+
+  &__arrow_white {
+    border: 3px solid $white-lite;
+    background-color: $white-lite;
+    transform: rotate(55deg);
+    width: 30px;
+    left: 24px;
+    bottom: 10px;
+    z-index: 1;
+  }
+
+  &__arrow_white-golden-hour {
+    width: 40px;
+    bottom: 15px;
+    left: 35px;
+  }
+
+  &__arrow_brown {
+    border: 3px solid $grey-dark;
+    background-color: $grey-dark;
+    transform: rotate(-180deg);
+    width: 45px;
+    left: 4px;
+  }
+
+  &__arrow_brown-golden-hour {
+    width: 55px;
+    bottom: 1px;
+    left: 10px;
+  }
+
+  &__timers {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &__timer_big {
+    font-size: 1.2rem;
+    display: block;
+    white-space: nowrap;
+  }
+
+  &__timer_small {
+    font-size: 0.8rem;
+    color: $grey-opacity;
+    opacity: 0.9;
+    white-space: nowrap;
+  }
+
+  &__timer_am {
+    font-size: 0.8rem;
+  }
+
+  &__timer_pm {
+    font-size: 0.8rem;
+  }
+}
