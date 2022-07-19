@@ -1,11 +1,5 @@
 <template>
-  <form
-    v-show="isOpen"
-    :open="isOpen"
-    action="#"
-    class="search-form form"
-    @submit.prevent
-  >
+  <form v-show="isOpen" :open="isOpen" class="search-form form" @submit.prevent>
     <InputBase
       v-model.capitalize="cityName"
       class="search-form__search-field input"
@@ -13,9 +7,10 @@
       type="text"
     ></InputBase>
     <ButtonBase
+      :disabled="isCityNameEmpty"
       class="search-form__search button"
       type="submit"
-      @click="closeForm"
+      @click="getCityWeather"
       ><img
         alt="Search"
         class="main__search"
@@ -28,7 +23,10 @@
 
 <script>
 import { defineComponent } from "vue";
-import { API } from "@/constants/api";
+import { mapActions } from "pinia";
+import { API, SERVER_CODE } from "@/constants/api";
+import weather from "@/store/weather";
+import { initValues } from "@/constants/values";
 
 export default defineComponent({
   name: "FormSearchApp",
@@ -45,13 +43,35 @@ export default defineComponent({
       cityName: "",
     };
   },
+  created() {
+    this.getCityWeather();
+  },
+  computed: {
+    isCityNameEmpty() {
+      return this.cityName.length <= 1;
+    },
+  },
   methods: {
+    ...mapActions(weather, { requestCityWeather: "getCityWeather" }),
     closeForm() {
       this.$emit("closeForm", true);
     },
-    getCityWeather() {
-      const cityName = this.cityName;
-      const URL = API.getWeatherPath;
+    async getCityWeather() {
+      try {
+        let cityName = this.cityName;
+        if (cityName === "") {
+          cityName = initValues.SAINT_PETERSBURG;
+        }
+        const serverUrl = API.getWeatherPath;
+        const URL = `${serverUrl}?q=${cityName}&appid=${API.apiKey}`;
+        const result = await this.requestCityWeather(URL);
+        if (result.cod === SERVER_CODE.STATUS_SUCCESS) {
+          this.cityName = "";
+          this.closeForm();
+        }
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 });
