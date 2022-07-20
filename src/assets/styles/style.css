@@ -542,6 +542,7 @@ textarea {
 .city {
   display: flex;
   align-items: center;
+  white-space: nowrap;
 }
 .city__map {
   margin-bottom: 0.65rem;
@@ -618,7 +619,7 @@ textarea {
   left: 4px;
 }
 .clock__timers {
-  padding-top: 1.5rem;
+  padding: 1.5rem 0;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;

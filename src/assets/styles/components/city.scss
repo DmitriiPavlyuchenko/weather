@@ -1,6 +1,7 @@
 .city {
   display: flex;
   align-items: center;
+  white-space: nowrap;
 
   &__map {
     margin-bottom: 0.65rem;
