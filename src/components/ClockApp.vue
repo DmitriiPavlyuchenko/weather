@@ -9,7 +9,6 @@
       </div>
       <div class="clock__timers">
         <span class="clock__timer clock__timer_big">{{ time }}</span>
-        <span class="clock__timer clock__timer_small">22:08</span>
       </div>
     </div>
   </div>
@@ -28,7 +27,6 @@ export default defineComponent({
     time: {
       type: String,
       required: true,
-      default: "",
     },
   },
 });

@@ -1,5 +1,5 @@
 <template>
-  <form v-show="isOpen" :open="isOpen" class="search-form form" @submit.prevent>
+  <form v-show="isOpen" class="search-form form" @submit.prevent>
     <InputBase
       v-model.capitalize="cityName"
       class="search-form__search-field input"
@@ -23,10 +23,9 @@
 
 <script>
 import { defineComponent } from "vue";
-import { mapActions } from "pinia";
 import { API, SERVER_CODE } from "@/constants/api";
-import weather from "@/store/weather";
 import { initValues } from "@/constants/values";
+import { mapActions } from "vuex";
 
 export default defineComponent({
   name: "FormSearchApp",
@@ -52,7 +51,7 @@ export default defineComponent({
     },
   },
   methods: {
-    ...mapActions(weather, { requestCityWeather: "getCityWeather" }),
+    ...mapActions({ getCityWeather: "getCityWeather" }),
     closeForm() {
       this.$emit("closeForm", true);
     },
@@ -64,7 +63,7 @@ export default defineComponent({
         }
         const serverUrl = API.getWeatherPath;
         const URL = `${serverUrl}?q=${cityName}&appid=${API.apiKey}`;
-        const result = await this.requestCityWeather(URL);
+        const result = await this.$store.dispatch("getCityWeather", URL);
         if (result.cod === SERVER_CODE.STATUS_SUCCESS) {
           this.cityName = "";
           this.closeForm();

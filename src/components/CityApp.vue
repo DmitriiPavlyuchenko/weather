@@ -13,22 +13,21 @@
 
 <script>
 import { defineComponent } from "vue";
-import { mapState } from "pinia";
-import weather from "@/store/weather";
+import { mapState } from "vuex";
 
 export default defineComponent({
-  data() {
-    return {
-      city: this.currentCity,
-    };
-  },
   props: {
     isOpen: {
       type: Boolean,
       required: true,
     },
   },
-  computed: { ...mapState(weather, { currentCity: "currentCity" }) },
+  computed: {
+    ...mapState({ currentCity: "currentCity" }),
+    currentCity() {
+      return this.$store.state.currentCity;
+    },
+  },
 });
 </script>
 

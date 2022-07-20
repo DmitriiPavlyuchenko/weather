@@ -1,7 +1,7 @@
 .day-period {
   display: flex;
   padding-top: 1.9em;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 30px;
 }
 

@@ -9,4 +9,8 @@ export interface IPromise {
 
 export interface ICityWeather {
   name: string;
+  sys: {
+    sunrise: number;
+    sunset: number;
+  };
 }
