@@ -506,13 +506,14 @@ textarea {
 
 .main {
   flex: 0 1 40%;
-  padding: 40px;
+  padding: 1.42rem;
   background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
   box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
 }
 
 .display {
   flex: 0 1 60%;
+  padding: 1.42rem;
 }
 
 .search-form {
@@ -665,6 +666,35 @@ textarea {
   padding: 10px 20px;
   border-radius: 100px;
   cursor: pointer;
+}
+
+.weather-info {
+  padding-top: 80px;
+  text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
+}
+.weather-info__degrees {
+  font-size: 5.8rem;
+}
+.weather-info__body {
+  padding-top: 18px;
+}
+.weather-info__date {
+  font-size: 1.3rem;
+}
+.weather-info__description {
+  padding-top: 5px;
+  font-size: 0.85rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.weather-info__trait {
+  font-size: 12px;
+}
+.weather-info__footer {
+  display: flex;
+  gap: 15px;
+  padding-top: 38px;
 }
 
 /*# sourceMappingURL=style.css.map */

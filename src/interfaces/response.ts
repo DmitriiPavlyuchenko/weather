@@ -13,4 +13,12 @@ export interface ICityWeather {
     sunrise: number;
     sunset: number;
   };
+  main: {
+    temp: number;
+    humidity: number;
+    pressure: number;
+  };
+  wind: {
+    speed: number;
+  };
 }

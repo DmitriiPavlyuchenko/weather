@@ -1,0 +1,65 @@
+.weather-info {
+  padding-top: 80px;
+  text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
+
+  &__header {
+
+  }
+
+  &__degrees {
+    font-size: 5.8rem;
+  }
+
+  &__img {
+
+  }
+
+  &__body {
+    padding-top: 18px;
+  }
+
+  &__date {
+    font-size: 1.3rem;
+  }
+
+  &__description {
+    padding-top: 5px;
+    font-size: 0.85rem;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__trait {
+    font-size: 12px;
+  }
+
+  &__day {
+  }
+
+  &__time {
+
+  }
+
+  &__footer {
+    display: flex;
+    gap: 15px;
+    padding-top: 38px;
+  }
+
+  &__wind {
+
+  }
+
+  &__icon {
+
+  }
+
+  &__title {
+
+  }
+
+  &__magnitude {
+
+  }
+}
