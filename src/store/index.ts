@@ -11,6 +11,9 @@ export default createStore({
       cities: [],
       sunriseWeather: null,
       sunsetWeather: null,
+      temperatureWeather: null,
+      humidity: null,
+      wind: null,
     };
   },
   mutations: {
@@ -26,6 +29,15 @@ export default createStore({
     setSunset(state: IRootStore, payload: number | null) {
       state.sunsetWeather = payload;
     },
+    setTemperature(state: IRootStore, payload: number | null) {
+      state.temperatureWeather = payload;
+    },
+    setHumidity(state: IRootStore, payload: number | null) {
+      state.humidity = payload;
+    },
+    setWind(state: IRootStore, payload: number | null) {
+      state.wind = payload;
+    },
   },
   actions: {
     async getCityWeather(context, URL: string): Promise<object | unknown> {
@@ -38,6 +50,9 @@ export default createStore({
           context.commit("setCity", cityName);
           context.commit("setSunrise", result.sys.sunrise);
           context.commit("setSunset", result.sys.sunset);
+          context.commit("setTemperature", result.main.temp);
+          context.commit("setHumidity", result.main.humidity);
+          context.commit("setWind", result.wind.speed);
           return result;
         }
       } catch (error: unknown) {
