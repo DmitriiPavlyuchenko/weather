@@ -649,4 +649,22 @@ textarea {
   gap: 30px;
 }
 
+.info-string {
+  padding-top: 60px;
+  display: flex;
+  gap: 25px;
+  align-items: flex-end;
+}
+.info-string__string {
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  width: 100%;
+}
+.info-string__info {
+  background: rgba(255, 255, 255, 0.23);
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */

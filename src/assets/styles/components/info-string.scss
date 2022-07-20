@@ -1,0 +1,19 @@
+.info-string {
+  padding-top: 60px;
+  display: flex;
+  gap: 25px;
+  align-items: flex-end;
+
+  &__string {
+    border: 1px solid $white;
+    background-color: $white;
+    width: 100%;
+  }
+
+  &__info {
+    background: rgba(255, 255, 255, 0.23);
+    padding: 10px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+}
