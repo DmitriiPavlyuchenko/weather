@@ -1,8 +1,10 @@
 <template>
   <div class="weather-info">
     <div class="weather-info__header">
-      <span class="weather-info__degrees">{{ temperature }} </span>
-      <img alt="" class="weather-info__img" src="" />
+      <span class="weather-info__degrees">
+        {{ temperature }} <span class="weather-info__degree-sign">°с</span>
+      </span>
+      <!--      <img alt="" class="weather-info__img" src="" />-->
     </div>
     <div class="weather-info__body">
       <span class="weather-info__date">{{ convertDate }}</span>

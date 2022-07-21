@@ -1,13 +1,21 @@
 .weather-info {
-  padding-top: 80px;
   text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
 
   &__header {
-
+    margin-top: 2rem;
+    max-height: 100%;
+    height: auto;
+    line-height: normal;
   }
 
   &__degrees {
-    font-size: 5.8rem;
+    font-size: 5rem;
+    display: flex;
+  }
+
+  &__degree-sign {
+    align-content: flex-start;
+    font-size: 1.14rem;
   }
 
   &__img {

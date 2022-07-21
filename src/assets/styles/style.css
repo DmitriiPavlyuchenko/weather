@@ -7,7 +7,7 @@
 }
 @font-face {
   font-family: "Overpass";
-  font-weight: 600;
+  font-weight: 200;
   font-style: normal;
   font-display: swap;
   src: url("@/assets/fonts/Overpass-ExtraLight.woff") format("woff"), url("@/assets/fonts/Overpass-ExtraLight.woff2") format("woff2");
@@ -514,6 +514,7 @@ textarea {
 .display {
   flex: 0 1 60%;
   padding: 1.42rem;
+  font-weight: 200;
 }
 
 .search-form {
@@ -669,11 +670,21 @@ textarea {
 }
 
 .weather-info {
-  padding-top: 80px;
   text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
 }
+.weather-info__header {
+  margin-top: 2rem;
+  max-height: 100%;
+  height: auto;
+  line-height: normal;
+}
 .weather-info__degrees {
-  font-size: 5.8rem;
+  font-size: 5rem;
+  display: flex;
+}
+.weather-info__degree-sign {
+  align-content: flex-start;
+  font-size: 1.14rem;
 }
 .weather-info__body {
   padding-top: 18px;
