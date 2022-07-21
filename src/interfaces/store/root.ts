@@ -6,4 +6,5 @@ export interface IRootStore {
   temperatureWeather: null | number;
   humidity: null | number;
   wind: null | number;
+  icon: null | string;
 }

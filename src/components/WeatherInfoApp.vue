@@ -4,7 +4,7 @@
       <span class="weather-info__degrees">
         {{ temperature }} <span class="weather-info__degree-sign">°с</span>
       </span>
-      <img alt="" class="weather-info__img" src="" />
+      <img :src="icon" alt="Weather" class="weather-info__img" />
     </div>
     <div class="weather-info__body">
       <span class="weather-info__date">{{ convertDate }}</span>
@@ -62,6 +62,9 @@ export default defineComponent({
     },
     unixTemperature() {
       return this.$store.state.temperatureWeather;
+    },
+    icon() {
+      return `http://openweathermap.org/img/wn/${this.$store.state.icon}@2x.png`;
     },
   },
   watch: {

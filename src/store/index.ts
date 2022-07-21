@@ -14,6 +14,7 @@ export default createStore({
       temperatureWeather: null,
       humidity: null,
       wind: null,
+      icon: null,
     };
   },
   mutations: {
@@ -38,6 +39,9 @@ export default createStore({
     setWind(state: IRootStore, payload: number | null) {
       state.wind = payload;
     },
+    setIcon(state: IRootStore, payload: string | null) {
+      state.icon = payload;
+    },
   },
   actions: {
     async getCityWeather(context, URL: string): Promise<object | unknown> {
@@ -53,6 +57,7 @@ export default createStore({
           context.commit("setTemperature", result.main.temp);
           context.commit("setHumidity", result.main.humidity);
           context.commit("setWind", result.wind.speed);
+          context.commit("setIcon", result.weather["0"].icon);
           return result;
         }
       } catch (error: unknown) {

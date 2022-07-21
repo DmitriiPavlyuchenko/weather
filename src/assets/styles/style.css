@@ -678,6 +678,8 @@ textarea {
   max-height: 100%;
   height: auto;
   line-height: normal;
+  display: flex;
+  align-items: center;
 }
 .weather-info__degrees {
   font-size: 5rem;
@@ -686,6 +688,9 @@ textarea {
 .weather-info__degree-sign {
   align-content: flex-start;
   font-size: 1.14rem;
+}
+.weather-info__img {
+  width: auto;
 }
 .weather-info__body {
   padding-top: 18px;
