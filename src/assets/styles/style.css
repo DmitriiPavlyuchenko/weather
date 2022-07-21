@@ -1,3 +1,4 @@
+@import "/src/assets/img/icons/icon-fonts/style.css";
 @font-face {
   font-family: "Overpass";
   font-weight: 400;
@@ -7,10 +8,10 @@
 }
 @font-face {
   font-family: "Overpass";
-  font-weight: 600;
+  font-weight: 200;
   font-style: normal;
   font-display: swap;
-  src: url("@/assets/fonts/Overpass-SemiBold.woff") format("woff"), url("@/assets/fonts/Overpass-SemiBold.woff2") format("woff2");
+  src: url("@/assets/fonts/Overpass-ExtraLight.woff") format("woff"), url("@/assets/fonts/Overpass-ExtraLight.woff2") format("woff2");
 }
 /* ==========================================================================
    Normalize.scss settings
@@ -514,6 +515,7 @@ textarea {
 .display {
   flex: 0 1 60%;
   padding: 1.42rem;
+  font-weight: 200;
 }
 
 .search-form {
@@ -669,11 +671,26 @@ textarea {
 }
 
 .weather-info {
-  padding-top: 80px;
   text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
 }
+.weather-info__header {
+  margin-top: 2rem;
+  max-height: 100%;
+  height: auto;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+}
 .weather-info__degrees {
-  font-size: 5.8rem;
+  font-size: 5rem;
+  display: flex;
+}
+.weather-info__degree-sign {
+  align-content: flex-start;
+  font-size: 1.14rem;
+}
+.weather-info__img {
+  width: auto;
 }
 .weather-info__body {
   padding-top: 18px;
@@ -695,6 +712,16 @@ textarea {
   display: flex;
   gap: 15px;
   padding-top: 38px;
+  align-items: center;
+}
+.weather-info__forecast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.weather-info__icon {
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

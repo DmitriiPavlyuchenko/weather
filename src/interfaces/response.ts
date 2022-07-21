@@ -21,4 +21,9 @@ export interface ICityWeather {
   wind: {
     speed: number;
   };
+  weather: {
+    0: {
+      icon: string;
+    };
+  };
 }
