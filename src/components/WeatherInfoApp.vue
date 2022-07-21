@@ -4,7 +4,7 @@
       <span class="weather-info__degrees">
         {{ temperature }} <span class="weather-info__degree-sign">°с</span>
       </span>
-      <!--      <img alt="" class="weather-info__img" src="" />-->
+      <img alt="" class="weather-info__img" src="" />
     </div>
     <div class="weather-info__body">
       <span class="weather-info__date">{{ convertDate }}</span>
@@ -15,16 +15,16 @@
       </div>
     </div>
     <div class="weather-info__footer">
-      <div class="weather-info__wind">
-        <i class="weather-info__icon"></i>
+      <div class="weather-info__forecast">
+        <i class="weather-info__icon icon-wind"></i>
         <span class="weather-info__title">Wind</span>
-        <span class="weather-info__magnitude">{{ wind }}km/h</span>
+        <span class="weather-info__magnitude"> {{ wind }}km/h</span>
       </div>
       <span class="weather-info__trait">|</span>
-      <div class="weather-info__hum">
-        <i class="weather-info__icon"></i>
+      <div class="weather-info__forecast">
+        <i class="weather-info__icon icon-hum"></i>
         <span class="weather-info__title">Hum</span>
-        <span class="weather-info__magnitude">{{ humidity }}%</span>
+        <span class="weather-info__magnitude"> {{ humidity }}%</span>
       </div>
     </div>
   </div>
@@ -46,13 +46,10 @@ export default defineComponent({
   computed: {
     ...mapState(["wind", "humidity", "temperatureWeather"]),
     wind() {
-      return " " + this.$store.state.wind + " ";
+      return this.$store.state.wind;
     },
     humidity() {
-      return " " + this.$store.state.humidity + " ";
-    },
-    pressure() {
-      return " " + this.$store.state.pressure + " ";
+      return this.$store.state.humidity;
     },
     convertDate() {
       return this.currentDate.toLocaleString().split(",").slice(0, 1).join();

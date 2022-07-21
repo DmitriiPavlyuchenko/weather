@@ -1,3 +1,4 @@
+@import "/src/assets/img/icons/icon-fonts/style.css";
 @font-face {
   font-family: "Overpass";
   font-weight: 400;
@@ -706,6 +707,16 @@ textarea {
   display: flex;
   gap: 15px;
   padding-top: 38px;
+  align-items: center;
+}
+.weather-info__forecast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.weather-info__icon {
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */
