@@ -3,7 +3,7 @@
     <InputBase
       v-model.capitalize="cityName"
       class="search-form__search-field input"
-      placeholder="Введите город"
+      placeholder="Enter city..."
       type="text"
     ></InputBase>
     <ButtonBase
