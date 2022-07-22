@@ -1,6 +1,6 @@
 <template>
   <div class="display">
-    <SwitchesApp></SwitchesApp>
+    <SwitchesApp @change="changeTheme"></SwitchesApp>
     <WeatherInfoApp></WeatherInfoApp>
   </div>
 </template>
@@ -12,6 +12,12 @@ import SwitchesApp from "@/components/SwitchesApp";
 export default {
   name: "DisplayPage",
   components: { WeatherInfoApp, SwitchesApp },
+  emits: ["changeTheme"],
+  methods: {
+    changeTheme(theme) {
+      this.$emit("change", theme);
+    },
+  },
 };
 </script>
 

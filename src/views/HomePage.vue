@@ -1,7 +1,7 @@
 <template>
   <div class="weather">
-    <div class="weather__container container">
-      <DisplayPage></DisplayPage>
+    <div :class="this.theme" class="weather__container container">
+      <DisplayPage @change="changeTheme"></DisplayPage>
       <MainPage></MainPage>
     </div>
   </div>
@@ -14,6 +14,17 @@ import MainPage from "@/views/MainPage";
 export default {
   name: "HomePage",
   components: { MainPage, DisplayPage },
+  data() {
+    return {
+      theme: "purple",
+    };
+  },
+  emits: ["changeTheme"],
+  methods: {
+    changeTheme(theme) {
+      this.theme = theme;
+    },
+  },
 };
 </script>
 

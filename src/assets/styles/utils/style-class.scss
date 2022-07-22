@@ -9,3 +9,15 @@
   font-size: 0.8em;
   color: #f3f3f3;
 }
+
+.purple {
+  background: linear-gradient(250deg, $purple-lite 0%, $purple-dark 100%);
+}
+
+.blue {
+  background: linear-gradient(248.66deg, $blue-lite 0%, $blue-dark 100%);
+}
+
+.red {
+  background: linear-gradient(248.66deg, $orange 0%, $purple-lite 100%);
+}

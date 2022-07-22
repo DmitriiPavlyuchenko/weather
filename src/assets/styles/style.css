@@ -419,6 +419,18 @@ th {
   color: #f3f3f3;
 }
 
+.purple {
+  background: linear-gradient(250deg, #8C6EAB 0%, #6b5185 100%);
+}
+
+.blue {
+  background: linear-gradient(248.66deg, #A8C8ED 0%, #7673DC 100%);
+}
+
+.red {
+  background: linear-gradient(248.66deg, #FF9696 0%, #8C6EAB 100%);
+}
+
 *,
 *::before,
 *::after {
@@ -502,7 +514,6 @@ textarea {
 .weather__container {
   border: 1px solid black;
   display: flex;
-  background: linear-gradient(250deg, #8C6EAB 0%, #48355B 100%);
 }
 
 .main {
@@ -722,6 +733,27 @@ textarea {
 .weather-info__icon {
   display: flex;
   align-items: center;
+}
+.switcher-theme {
+  display: flex;
+  gap: 5px;
+}
+.switcher-theme__purple {
+  background-color: #885ffc;
+}
+.switcher-theme__blue {
+  background-color: #A8C8ED;
+}
+.switcher-theme__red {
+  background-color: #FF9696;
+}
+
+.switcher-options {
+  display: block;
+  border-radius: 100px;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
