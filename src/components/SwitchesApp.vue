@@ -11,7 +11,6 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "SwitchesApp",
-  components: {},
   data() {
     return {
       theme: "purple",

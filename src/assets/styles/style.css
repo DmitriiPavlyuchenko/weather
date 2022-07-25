@@ -417,6 +417,7 @@ th {
 .input::placeholder {
   font-size: 0.9em;
   color: #ffffff;
+  opacity: 1;
 }
 
 .purple {
@@ -516,19 +517,6 @@ textarea {
   display: flex;
 }
 
-.main {
-  flex: 0 1 40%;
-  padding: 1.42rem;
-  background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-  box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
-}
-
-.display {
-  flex: 0 1 60%;
-  padding: 1.42rem;
-  font-weight: 200;
-}
-
 .search-form {
   position: relative;
   display: flex;
@@ -581,6 +569,7 @@ textarea {
   background: linear-gradient(116.79deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.12) 99.45%);
   border-radius: 0.71em;
 }
+
 .clock {
   text-align: center;
   align-self: flex-end;
@@ -642,18 +631,6 @@ textarea {
   font-size: 1.2rem;
   display: block;
   white-space: nowrap;
-}
-.clock__timer_small {
-  font-size: 0.8rem;
-  color: #EBEBEB;
-  opacity: 0.9;
-  white-space: nowrap;
-}
-.clock__timer_am {
-  font-size: 0.8rem;
-}
-.clock__timer_pm {
-  font-size: 0.8rem;
 }
 
 .day-period {
@@ -734,6 +711,7 @@ textarea {
   display: flex;
   align-items: center;
 }
+
 .switcher-theme {
   display: flex;
   gap: 5px;
@@ -754,6 +732,19 @@ textarea {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
+}
+
+.main {
+  flex: 0 1 40%;
+  padding: 1.42rem;
+  background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
+}
+
+.display {
+  flex: 0 1 60%;
+  padding: 1.42rem;
+  font-weight: 200;
 }
 
 /*# sourceMappingURL=style.css.map */

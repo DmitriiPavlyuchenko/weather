@@ -4,7 +4,7 @@
     <FormSearchApp :isOpen="isFormOpen" @closeForm="closeForm"></FormSearchApp>
     <ButtonBase
       v-show="!isFormOpen"
-      class="header__form-open button"
+      class="header__form-open"
       type="button"
       @click="openForm"
     >

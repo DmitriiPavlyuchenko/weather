@@ -26,6 +26,7 @@ export default defineComponent({
       if (modifierCapitalize) {
         value = value.charAt(0).toUpperCase() + value.slice(1);
       }
+
       this.$emit("update:modelValue", value);
     },
   },

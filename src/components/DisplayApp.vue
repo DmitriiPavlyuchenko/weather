@@ -10,7 +10,7 @@ import WeatherInfoApp from "@/components/WeatherInfoApp";
 import SwitchesApp from "@/components/SwitchesApp";
 
 export default {
-  name: "DisplayPage",
+  name: "DisplayApp",
   components: { WeatherInfoApp, SwitchesApp },
   emits: ["changeTheme"],
   methods: {

@@ -1,19 +1,19 @@
 <template>
   <div class="weather">
-    <div :class="this.theme" class="weather__container container">
-      <DisplayPage @change="changeTheme"></DisplayPage>
-      <MainPage></MainPage>
+    <div :class="theme" class="weather__container container">
+      <DisplayApp @change="changeTheme"></DisplayApp>
+      <MainApp></MainApp>
     </div>
   </div>
 </template>
 
 <script>
-import DisplayPage from "@/views/DisplayPage";
-import MainPage from "@/views/MainPage";
+import DisplayApp from "@/components/DisplayApp";
+import MainApp from "@/components/MainApp";
 
 export default {
   name: "HomePage",
-  components: { MainPage, DisplayPage },
+  components: { MainApp, DisplayApp },
   data() {
     return {
       theme: "purple",

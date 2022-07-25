@@ -2,13 +2,13 @@
   <form v-show="isOpen" class="search-form form" @submit.prevent>
     <InputBase
       v-model.capitalize="cityName"
-      class="search-form__search-field input"
+      class="search-form__search-field"
       placeholder="Enter city..."
       type="text"
     ></InputBase>
     <ButtonBase
       :disabled="isCityNameEmpty"
-      class="search-form__search button"
+      class="search-form__search"
       type="submit"
       @click="getCityWeather"
       ><img
@@ -23,13 +23,12 @@
 
 <script>
 import { defineComponent } from "vue";
+import { mapActions } from "vuex";
 import { API, SERVER_CODE } from "@/constants/api";
 import { initValues } from "@/constants/values";
-import { mapActions } from "vuex";
 
 export default defineComponent({
   name: "FormSearchApp",
-  components: {},
   props: {
     isOpen: {
       type: Boolean,
@@ -47,7 +46,8 @@ export default defineComponent({
   },
   computed: {
     isCityNameEmpty() {
-      return this.cityName.length <= 1;
+      const oneSymbol = 1;
+      return this.cityName.length <= oneSymbol;
     },
   },
   methods: {

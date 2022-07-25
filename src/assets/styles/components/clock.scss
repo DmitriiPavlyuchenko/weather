@@ -68,19 +68,4 @@
     display: block;
     white-space: nowrap;
   }
-
-  &__timer_small {
-    font-size: 0.8rem;
-    color: $grey-opacity;
-    opacity: 0.9;
-    white-space: nowrap;
-  }
-
-  &__timer_am {
-    font-size: 0.8rem;
-  }
-
-  &__timer_pm {
-    font-size: 0.8rem;
-  }
 }

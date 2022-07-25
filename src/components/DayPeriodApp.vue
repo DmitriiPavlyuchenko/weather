@@ -7,10 +7,10 @@
 
 <script>
 import { defineComponent } from "vue";
-import ClockApp from "@/components/ClockApp";
-import { CLOCK_TITLE } from "@/constants/clock";
 import { mapState } from "vuex";
 import { convertTime } from "@/helpers/unixConverter";
+import { CLOCK_TITLE } from "@/constants/clock";
+import ClockApp from "@/components/ClockApp";
 
 export default defineComponent({
   name: "DayPeriodApp",

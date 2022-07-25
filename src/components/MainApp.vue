@@ -14,7 +14,7 @@ import InfoStringApp from "@/components/InfoStringApp";
 import TemperatureApp from "@/components/TemperatureApp";
 
 export default {
-  name: "MainPage",
+  name: "MainApp",
   components: { InfoStringApp, HeaderApp, DayPeriodApp, TemperatureApp },
 };
 </script>

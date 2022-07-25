@@ -4,9 +4,7 @@
 "utils/style-class",
 "utils/default-settings";
 
-@import "views/home-page",
-"views/main-page",
-"views/display-page";
+@import "views/home-page";
 
 @import "components/search-form",
 "components/city",
@@ -15,8 +13,9 @@
 "components/day-period",
 "components/info-string",
 "components/diagram",
-"components/temperature",
 "components/weather-info",
-"components/switches";
+"components/switches",
+"components/main",
+"components/display";
 
 @import "/src/assets/img/icons/icon-fonts/style.css";
