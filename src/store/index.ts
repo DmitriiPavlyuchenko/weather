@@ -1,11 +1,11 @@
 import { createStore } from "vuex";
-import { IRootStore } from "@/interfaces/store/root";
+import { RootStore } from "@/interfaces/store/root";
 import { getCityWeather } from "@/api/weather";
-import { ICityWeather, IPromise } from "@/interfaces/response";
+import { CityWeather, Response } from "@/interfaces/response";
 import { SERVER_CODE } from "@/constants/api";
 
 export default createStore({
-  state: (): IRootStore => {
+  state: (): RootStore => {
     return {
       currentCity: "",
       cities: [],
@@ -18,36 +18,36 @@ export default createStore({
     };
   },
   mutations: {
-    setCurrentCity(state: IRootStore, payload: string) {
+    setCurrentCity(state: RootStore, payload: string) {
       state.currentCity = payload;
     },
-    setCity(state: IRootStore, payload: string) {
+    setCity(state: RootStore, payload: string) {
       state.cities.push(payload);
     },
-    setSunrise(state: IRootStore, payload: number | null) {
+    setSunrise(state: RootStore, payload: number | null) {
       state.sunriseWeather = payload;
     },
-    setSunset(state: IRootStore, payload: number | null) {
+    setSunset(state: RootStore, payload: number | null) {
       state.sunsetWeather = payload;
     },
-    setTemperature(state: IRootStore, payload: number | null) {
+    setTemperature(state: RootStore, payload: number | null) {
       state.temperatureWeather = payload;
     },
-    setHumidity(state: IRootStore, payload: number | null) {
+    setHumidity(state: RootStore, payload: number | null) {
       state.humidity = payload;
     },
-    setWind(state: IRootStore, payload: number | null) {
+    setWind(state: RootStore, payload: number | null) {
       state.wind = payload;
     },
-    setIcon(state: IRootStore, payload: string | null) {
+    setIcon(state: RootStore, payload: string | null) {
       state.icon = payload;
     },
   },
   actions: {
     async getCityWeather(context, URL: string): Promise<object | unknown> {
       try {
-        const request = (await getCityWeather(URL)) as IPromise;
-        const result = (await request.json()) as ICityWeather;
+        const request = (await getCityWeather(URL)) as Response;
+        const result = (await request.json()) as CityWeather;
         const cityName = result.name;
         if (request.status === SERVER_CODE.STATUS_SUCCESS) {
           context.commit("setCurrentCity", cityName);

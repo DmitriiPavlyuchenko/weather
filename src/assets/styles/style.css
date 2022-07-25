@@ -587,6 +587,7 @@ textarea {
   border-radius: 100px;
   text-align: center;
   padding: 15px;
+  min-width: 4.57em;
 }
 .clock__arrows {
   padding-top: 54px;

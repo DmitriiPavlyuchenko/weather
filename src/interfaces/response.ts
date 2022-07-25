@@ -1,4 +1,4 @@
-export interface IPromise {
+export interface Response {
   status: number;
   data: {
     name: string;
@@ -7,7 +7,7 @@ export interface IPromise {
   json(): Promise<object>;
 }
 
-export interface ICityWeather {
+export interface CityWeather {
   name: string;
   sys: {
     sunrise: number;

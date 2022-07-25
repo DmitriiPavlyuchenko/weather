@@ -1,4 +1,4 @@
-export interface IRootStore {
+export interface RootStore {
   currentCity: string;
   cities: string[];
   sunriseWeather: null | number;
