@@ -513,7 +513,6 @@ textarea {
   background-color: rgba(162, 162, 162, 0.32);
 }
 .weather__container {
-  border: 1px solid black;
   display: flex;
 }
 
@@ -655,7 +654,7 @@ textarea {
 }
 .info-string__info {
   background: rgba(255, 255, 255, 0.23);
-  padding: 10px 20px;
+  padding: 7px 20px 4px;
   border-radius: 100px;
   cursor: pointer;
 }
