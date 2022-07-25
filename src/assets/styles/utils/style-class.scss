@@ -1,12 +1,12 @@
 .input {
   color: $white;
-  font-size: 0.8em;
+  font-size: .8em;
   padding: .65rem;
   border: none;
 }
 
 .input::placeholder {
-  font-size: 0.9em;
+  font-size: .9em;
   color: $white;
   opacity: 1;
 }
@@ -21,4 +21,15 @@
 
 .red {
   background: linear-gradient(248.66deg, $orange 0%, $purple-lite 100%);
+}
+
+@media (max-width: 998px) {
+  .input {
+    font-size: .8rem;
+    padding: .46495rem;
+  }
+
+  .input::placeholder {
+    font-size: .8rem;
+  }
 }

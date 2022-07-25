@@ -2,7 +2,7 @@
   text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
 
   &__header {
-    margin-top: 2rem;
+    padding-top: 2rem;
     max-height: 100%;
     height: auto;
     line-height: normal;
@@ -25,7 +25,7 @@
   }
 
   &__body {
-    padding-top: 18px;
+    padding-top: 0.64rem;
   }
 
   &__date {
@@ -33,33 +33,91 @@
   }
 
   &__description {
-    padding-top: 5px;
+    padding-top: .17rem;
     font-size: 0.85rem;
     display: flex;
-    gap: 10px;
+    gap: .35rem;
     align-items: center;
   }
 
   &__trait {
-    font-size: 12px;
+    font-size: .42rem;
   }
 
 
   &__footer {
     display: flex;
-    gap: 15px;
-    padding-top: 38px;
+    gap: .53rem;
+    padding-top: 1.35rem;
     align-items: center;
   }
 
   &__forecast {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: .28rem;
   }
 
   &__icon {
     display: flex;
     align-items: center;
+  }
+}
+
+@media (max-width: 998px) {
+  .weather-info {
+
+    &__degrees {
+      font-size: 3rem;
+    }
+
+    &__degree-sign {
+      font-size: 1rem;
+    }
+
+    &__body {
+      padding-top: 0.6rem;
+    }
+
+    &__date {
+      font-size: 1rem;
+    }
+
+    &__description {
+      padding-top: .15rem;
+      font-size: 0.75rem;
+      gap: .25rem;
+    }
+
+    &__footer {
+      gap: .2rem;
+      padding-top: 1rem;
+    }
+
+    &__forecast {
+      gap: .25rem;
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .weather-info {
+
+    &__header {
+      padding-top: .7rem;
+    }
+
+    &__forecast {
+      font-size: .75rem;
+    }
+
+    &__body {
+      padding-top: .5rem;
+    }
+
+    &__footer {
+      padding-top: .5rem;
+      flex-wrap: wrap;
+    }
   }
 }

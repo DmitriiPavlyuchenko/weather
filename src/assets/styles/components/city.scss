@@ -7,11 +7,21 @@
     font-size: 1.15rem;
     text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
     align-self: center;
-    padding-left: 31px;
+    padding-left: .5em;
   }
 }
 
 .ico-map {
-  width: 28px;
-  height: 36px;
+  width: 1rem;
+  height: 1.5rem;
+}
+
+@media (max-width: 998px) {
+  .city {
+
+    &__name {
+      font-size: 0.8rem;
+      padding-left: .3rem;
+    }
+  }
 }

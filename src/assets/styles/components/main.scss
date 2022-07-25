@@ -4,3 +4,21 @@
   background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
   box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
 }
+
+@media (max-width: 1300px) {
+  .main {
+    flex: 0 1 47%;
+  }
+}
+
+@media (max-width: 998px) {
+  .main {
+    padding: .5rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .main {
+    order: 1;
+  }
+}

@@ -1,6 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  gap: .5em;
 
   &__form-open {
     display: flex;
@@ -8,6 +9,15 @@
     align-items: center;
     padding: .695em;
     background: linear-gradient(116.79deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.12) 99.45%);
-    border-radius: 0.71em;
+    border-radius: .71em;
+  }
+}
+
+@media (max-width: 998px) {
+  .header {
+
+    &__form-open {
+      padding: .5rem;
+    }
   }
 }

@@ -432,6 +432,15 @@ th {
   background: linear-gradient(248.66deg, #FF9696 0%, #8C6EAB 100%);
 }
 
+@media (max-width: 998px) {
+  .input {
+    font-size: 0.8rem;
+    padding: 0.46495rem;
+  }
+  .input::placeholder {
+    font-size: 0.8rem;
+  }
+}
 *,
 *::before,
 *::after {
@@ -465,10 +474,6 @@ a {
 button {
   cursor: pointer;
   border: none;
-}
-
-img {
-  width: 100%;
 }
 
 input,
@@ -516,6 +521,11 @@ textarea {
   display: flex;
 }
 
+@media (max-width: 780px) {
+  .weather__container {
+    flex-direction: column;
+  }
+}
 .search-form {
   position: relative;
   display: flex;
@@ -549,17 +559,24 @@ textarea {
   font-size: 1.15rem;
   text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
   align-self: center;
-  padding-left: 31px;
+  padding-left: 0.5em;
 }
 
 .ico-map {
-  width: 28px;
-  height: 36px;
+  width: 1rem;
+  height: 1.5rem;
 }
 
+@media (max-width: 998px) {
+  .city__name {
+    font-size: 0.8rem;
+    padding-left: 0.3rem;
+  }
+}
 .header {
   display: flex;
   justify-content: space-between;
+  gap: 0.5em;
 }
 .header__form-open {
   display: flex;
@@ -570,6 +587,11 @@ textarea {
   border-radius: 0.71em;
 }
 
+@media (max-width: 998px) {
+  .header__form-open {
+    padding: 0.5rem;
+  }
+}
 .clock {
   text-align: center;
   align-self: flex-end;
@@ -581,46 +603,46 @@ textarea {
   white-space: nowrap;
 }
 .clock__wrapper {
-  margin-top: 28px;
+  margin-top: 1rem;
   background: rgba(255, 255, 255, 0.26);
-  border-radius: 100px;
+  border-radius: 3.6rem;
   text-align: center;
-  padding: 15px;
+  padding: 0.535rem;
   min-width: 4.57em;
 }
 .clock__arrows {
-  padding-top: 54px;
+  padding-top: 1.92rem;
   position: relative;
 }
 .clock__arrow {
   display: block;
   position: absolute;
-  border-radius: 100px;
+  border-radius: 1.57rem;
   bottom: 0;
 }
 .clock__arrow_purple {
   border: 2px solid #885ffc;
   background-color: #885ffc;
   transform: rotate(125deg);
-  width: 50px;
-  left: 35px;
-  bottom: 20px;
+  width: 1.78rem;
+  left: 1.25rem;
+  bottom: 0.71rem;
 }
 .clock__arrow_white {
   border: 3px solid #EEECEC;
   background-color: #EEECEC;
   transform: rotate(55deg);
-  width: 30px;
-  left: 24px;
-  bottom: 10px;
+  width: 1.07rem;
+  left: 0.85rem;
+  bottom: 0.35rem;
   z-index: 1;
 }
 .clock__arrow_brown {
   border: 3px solid #828282;
   background-color: #828282;
   transform: rotate(-180deg);
-  width: 45px;
-  left: 4px;
+  width: 1.6rem;
+  left: 0.14rem;
 }
 .clock__timers {
   padding: 1.5rem 0;
@@ -634,17 +656,62 @@ textarea {
   white-space: nowrap;
 }
 
+@media (max-width: 998px) {
+  .clock__arrows {
+    padding-top: 1.5rem;
+  }
+  .clock__arrow {
+    border-radius: 1.5rem;
+  }
+  .clock__arrow_purple {
+    width: 1.2rem;
+    left: 1rem;
+    bottom: 0.6rem;
+  }
+  .clock__arrow_white {
+    width: 1rem;
+    left: 0.45rem;
+    bottom: 0.35rem;
+  }
+  .clock__arrow_brown {
+    width: 1.25rem;
+    left: 0;
+    bottom: 0.04rem;
+  }
+  .clock__title {
+    font-size: 0.75rem;
+  }
+  .clock__timers {
+    padding: 0.8rem 0;
+  }
+  .clock__wrapper {
+    min-width: 3rem;
+  }
+  .clock__timer_big {
+    font-size: 0.8rem;
+  }
+}
 .day-period {
   display: flex;
   padding-top: 1.9em;
   justify-content: space-evenly;
-  gap: 30px;
+  gap: 1rem;
 }
 
+@media (max-width: 998px) {
+  .day-period {
+    padding-top: 1rem;
+  }
+}
+@media (max-width: 780px) {
+  .day-period {
+    padding-top: 0.5rem;
+  }
+}
 .info-string {
-  padding-top: 60px;
+  padding-top: 2.14rem;
   display: flex;
-  gap: 25px;
+  gap: 0.9rem;
   align-items: flex-end;
 }
 .info-string__string {
@@ -654,16 +721,26 @@ textarea {
 }
 .info-string__info {
   background: rgba(255, 255, 255, 0.23);
-  padding: 7px 20px 4px;
-  border-radius: 100px;
+  padding: 0.25rem 0.71rem 0.14rem;
+  border-radius: 3.57rem;
   cursor: pointer;
 }
 
+@media (max-width: 998px) {
+  .info-string {
+    padding-top: 1rem;
+  }
+}
+@media (max-width: 780px) {
+  .info-string {
+    padding-top: 0.5rem;
+  }
+}
 .weather-info {
   text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
 }
 .weather-info__header {
-  margin-top: 2rem;
+  padding-top: 2rem;
   max-height: 100%;
   height: auto;
   line-height: normal;
@@ -682,40 +759,81 @@ textarea {
   width: auto;
 }
 .weather-info__body {
-  padding-top: 18px;
+  padding-top: 0.64rem;
 }
 .weather-info__date {
   font-size: 1.3rem;
 }
 .weather-info__description {
-  padding-top: 5px;
+  padding-top: 0.17rem;
   font-size: 0.85rem;
   display: flex;
-  gap: 10px;
+  gap: 0.35rem;
   align-items: center;
 }
 .weather-info__trait {
-  font-size: 12px;
+  font-size: 0.42rem;
 }
 .weather-info__footer {
   display: flex;
-  gap: 15px;
-  padding-top: 38px;
+  gap: 0.53rem;
+  padding-top: 1.35rem;
   align-items: center;
 }
 .weather-info__forecast {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.28rem;
 }
 .weather-info__icon {
   display: flex;
   align-items: center;
 }
 
+@media (max-width: 998px) {
+  .weather-info__degrees {
+    font-size: 3rem;
+  }
+  .weather-info__degree-sign {
+    font-size: 1rem;
+  }
+  .weather-info__body {
+    padding-top: 0.6rem;
+  }
+  .weather-info__date {
+    font-size: 1rem;
+  }
+  .weather-info__description {
+    padding-top: 0.15rem;
+    font-size: 0.75rem;
+    gap: 0.25rem;
+  }
+  .weather-info__footer {
+    gap: 0.2rem;
+    padding-top: 1rem;
+  }
+  .weather-info__forecast {
+    gap: 0.25rem;
+  }
+}
+@media (max-width: 780px) {
+  .weather-info__header {
+    padding-top: 0.7rem;
+  }
+  .weather-info__forecast {
+    font-size: 0.75rem;
+  }
+  .weather-info__body {
+    padding-top: 0.5rem;
+  }
+  .weather-info__footer {
+    padding-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+}
 .switcher-theme {
   display: flex;
-  gap: 5px;
+  gap: 0.17rem;
 }
 .switcher-theme__purple {
   background-color: #885ffc;
@@ -729,7 +847,7 @@ textarea {
 
 .switcher-options {
   display: block;
-  border-radius: 100px;
+  border-radius: 3.57rem;
   width: 1rem;
   height: 1rem;
   cursor: pointer;
@@ -742,10 +860,41 @@ textarea {
   box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
 }
 
+@media (max-width: 1300px) {
+  .main {
+    flex: 0 1 47%;
+  }
+}
+@media (max-width: 998px) {
+  .main {
+    padding: 0.5rem;
+  }
+}
+@media (max-width: 780px) {
+  .main {
+    order: 1;
+  }
+}
 .display {
   flex: 0 1 60%;
   padding: 1.42rem;
   font-weight: 200;
+}
+
+@media (max-width: 1300px) {
+  .display {
+    flex: 0 1 53%;
+  }
+}
+@media (max-width: 998px) {
+  .display {
+    padding: 0.5rem;
+  }
+}
+@media (max-width: 780px) {
+  .display {
+    order: 2;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

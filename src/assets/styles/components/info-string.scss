@@ -1,7 +1,7 @@
 .info-string {
-  padding-top: 60px;
+  padding-top: 2.14rem;
   display: flex;
-  gap: 25px;
+  gap: .9rem;
   align-items: flex-end;
 
   &__string {
@@ -12,8 +12,20 @@
 
   &__info {
     background: rgba(255, 255, 255, 0.23);
-    padding: 7px 20px 4px;
-    border-radius: 100px;
+    padding: .25rem .71rem .14rem;
+    border-radius: 3.57rem;
     cursor: pointer;
+  }
+}
+
+@media (max-width: 998px) {
+  .info-string {
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .info-string {
+    padding-top: .5rem;
   }
 }

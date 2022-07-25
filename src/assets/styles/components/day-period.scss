@@ -2,5 +2,17 @@
   display: flex;
   padding-top: 1.9em;
   justify-content: space-evenly;
-  gap: 30px
+  gap: 1rem
+}
+
+@media (max-width: 998px) {
+  .day-period {
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .day-period {
+    padding-top: .5rem;
+  }
 }

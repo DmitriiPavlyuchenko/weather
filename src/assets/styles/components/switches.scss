@@ -1,6 +1,6 @@
 .switcher-theme {
   display: flex;
-  gap: 5px;
+  gap: .17rem;
 
   &__purple {
     background-color: $purple;
@@ -17,7 +17,7 @@
 
 .switcher-options {
   display: block;
-  border-radius: 100px;
+  border-radius: 3.57rem;
   width: 1rem;
   height: 1rem;
   cursor: pointer;

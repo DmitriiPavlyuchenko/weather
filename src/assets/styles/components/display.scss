@@ -3,3 +3,21 @@
   padding: 1.42rem;
   font-weight: 200;;
 }
+
+@media (max-width: 1300px) {
+  .display {
+    flex: 0 1 53%;
+  }
+}
+
+@media (max-width: 998px) {
+  .display {
+    padding: .5rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .display {
+    order: 2;
+  }
+}
