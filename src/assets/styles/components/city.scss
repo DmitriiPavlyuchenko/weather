@@ -3,15 +3,15 @@
   align-items: center;
   white-space: nowrap;
 
-  &__map {
-    margin-bottom: 0.65rem;
-    background-color: inherit;
-  }
-
   &__name {
     font-size: 1.15rem;
     text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.1);
     align-self: center;
     padding-left: 31px;
   }
+}
+
+.ico-map {
+  width: 28px;
+  height: 36px;
 }

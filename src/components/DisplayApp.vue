@@ -1,8 +1,8 @@
 <template>
-  <div class="display">
+  <section class="display">
     <SwitchesApp @change="changeTheme"></SwitchesApp>
     <WeatherInfoApp></WeatherInfoApp>
-  </div>
+  </section>
 </template>
 
 <script>

@@ -1,10 +1,10 @@
 <template>
-  <div class="main">
+  <section class="main">
     <HeaderApp></HeaderApp>
     <DayPeriodApp></DayPeriodApp>
     <InfoStringApp></InfoStringApp>
     <TemperatureApp></TemperatureApp>
-  </div>
+  </section>
 </template>
 
 <script>

@@ -1,12 +1,6 @@
 <template>
   <div v-show="!isOpen" class="city">
-    <img
-      alt="Map"
-      class="city__map"
-      height="35"
-      src="@/assets/img/icons/map.svg"
-      width="35"
-    />
+    <i class="city__map icon-map" />
     <span class="city__name">{{ currentCity }}</span>
   </div>
 </template>

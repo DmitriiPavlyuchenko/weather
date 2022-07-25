@@ -1,10 +1,10 @@
 <template>
-  <div class="weather">
+  <main class="weather">
     <div :class="theme" class="weather__container container">
       <DisplayApp @change="changeTheme"></DisplayApp>
       <MainApp></MainApp>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
