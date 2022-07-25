@@ -14,7 +14,7 @@
     background: rgba(255, 255, 255, 0.26);
     border-radius: 3.6rem;
     text-align: center;
-    padding: 0.535rem;
+    padding: .535rem;
     min-width: 4.57em;
   }
 
@@ -36,7 +36,7 @@
     transform: rotate(125deg);
     width: 1.78rem;
     left: 1.25rem;
-    bottom: 0.71rem;
+    bottom: .71rem;
   }
 
   &__arrow_white {
@@ -44,8 +44,8 @@
     background-color: $white-lite;
     transform: rotate(55deg);
     width: 1.07rem;
-    left: 0.85rem;
-    bottom: 0.35rem;
+    left: .85rem;
+    bottom: .35rem;
     z-index: 1;
   }
 
@@ -61,7 +61,7 @@
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: .25rem;
   }
 
   &__timer_big {
