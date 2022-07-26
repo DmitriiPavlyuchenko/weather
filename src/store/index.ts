@@ -3,6 +3,8 @@ import { RootStore } from "@/interfaces/store/root";
 import { getCityWeather } from "@/api/weather";
 import { CityWeather, Response } from "@/interfaces/response";
 import { SERVER_CODE } from "@/constants/api";
+import { setJson } from "@/helpers/localStorage";
+import { CITIES, CURRENT_CITY } from "@/constants/values";
 
 export default createStore({
   state: (): RootStore => {
@@ -50,6 +52,8 @@ export default createStore({
         const result = (await request.json()) as CityWeather;
         const cityName = result.name;
         if (request.status === SERVER_CODE.STATUS_SUCCESS) {
+          setJson(CURRENT_CITY, cityName);
+          setJson(CITIES, result);
           context.commit("setCurrentCity", cityName);
           context.commit("setCity", cityName);
           context.commit("setSunrise", result.sys.sunrise);

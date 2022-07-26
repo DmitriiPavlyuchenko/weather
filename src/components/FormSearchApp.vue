@@ -25,9 +25,11 @@
 import { defineComponent } from "vue";
 import { mapActions } from "vuex";
 import { API, SERVER_CODE } from "@/constants/api";
-import { initValues } from "@/constants/values";
+import { CURRENT_CITY, initValues } from "@/constants/values";
+import { getJson } from "@/helpers/localStorage";
 
 export default defineComponent({
+  emits: ["closeForm"],
   name: "FormSearchApp",
   props: {
     isOpen: {
@@ -35,13 +37,13 @@ export default defineComponent({
       required: true,
     },
   },
-  emits: ["closeForm"],
   data() {
     return {
       cityName: "",
     };
   },
   created() {
+    this.isCityInLocalStorage();
     this.getCityWeather();
   },
   computed: {
@@ -58,9 +60,6 @@ export default defineComponent({
     async getCityWeather() {
       try {
         let cityName = this.cityName;
-        if (cityName === "") {
-          cityName = initValues.SAINT_PETERSBURG;
-        }
         const serverUrl = API.getWeatherPath;
         const URL = `${serverUrl}?q=${cityName}&appid=${API.apiKey}`;
         const result = await this.$store.dispatch("getCityWeather", URL);
@@ -70,6 +69,14 @@ export default defineComponent({
         }
       } catch (e) {
         console.log(e);
+      }
+    },
+    isCityInLocalStorage() {
+      const currentCity = getJson(CURRENT_CITY);
+      if (typeof currentCity === ("undefined" || "null")) {
+        return (this.cityName = initValues.SAINT_PETERSBURG);
+      } else {
+        return (this.cityName = currentCity);
       }
     },
   },
