@@ -896,5 +896,29 @@ textarea {
     order: 2;
   }
 }
+.cities-info {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1.35rem;
+}
+.cities-info__card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: column;
+  max-width: 150px;
+  padding: 0.6rem;
+  border-radius: 0.7rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  width: 100%;
+}
+.cities-info__degree {
+  font-size: 1.2rem;
+}
+.cities-info__city-name {
+  font-size: 1.2rem;
+}
 
 /*# sourceMappingURL=style.css.map */

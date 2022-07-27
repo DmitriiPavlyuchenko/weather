@@ -19,12 +19,21 @@ export default createStore({
       icon: null,
     };
   },
+  getters: {
+    fiveCities(state: RootStore) {
+      const cityCount = 4;
+      if (state.cities.length > cityCount) {
+        return state.cities.slice(0, 4);
+      }
+      return state.cities;
+    },
+  },
   mutations: {
     setCurrentCity(state: RootStore, payload: string) {
       state.currentCity = payload;
     },
     setCity(state: RootStore, payload: string) {
-      state.cities.push(payload);
+      state.cities.unshift(payload);
     },
     setSunrise(state: RootStore, payload: number | null) {
       state.sunriseWeather = payload;
@@ -55,7 +64,7 @@ export default createStore({
           setJson(CURRENT_CITY, cityName);
           setJson(CITIES, result);
           context.commit("setCurrentCity", cityName);
-          context.commit("setCity", cityName);
+          context.commit("setCity", result);
           context.commit("setSunrise", result.sys.sunrise);
           context.commit("setSunset", result.sys.sunset);
           context.commit("setTemperature", result.main.temp);

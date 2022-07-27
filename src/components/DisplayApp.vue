@@ -1,17 +1,19 @@
 <template>
   <section class="display">
-    <SwitchesApp @change="changeTheme"></SwitchesApp>
-    <WeatherInfoApp></WeatherInfoApp>
+    <SwitchesApp @change="changeTheme" />
+    <WeatherInfoApp />
+    <CitiesInfoApp />
   </section>
 </template>
 
 <script>
 import WeatherInfoApp from "@/components/WeatherInfoApp";
 import SwitchesApp from "@/components/SwitchesApp";
+import CitiesInfoApp from "@/components/CitiesInfoApp";
 
 export default {
   name: "DisplayApp",
-  components: { WeatherInfoApp, SwitchesApp },
+  components: { WeatherInfoApp, SwitchesApp, CitiesInfoApp },
   emits: ["changeTheme"],
   methods: {
     changeTheme(theme) {
