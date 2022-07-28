@@ -7,4 +7,5 @@ export interface RootStore {
   humidity: null | number;
   wind: null | number;
   icon: null | string;
+  description: null | string;
 }

@@ -411,13 +411,17 @@ th {
   color: #ffffff;
   font-size: 0.8em;
   padding: 0.65rem;
-  border: none;
+  border: 1px solid #ffffff;
 }
 
 .input::placeholder {
   font-size: 0.9em;
   color: #ffffff;
   opacity: 1;
+}
+
+.input:focus {
+  border: 1px solid #885ffc;
 }
 
 .purple {
@@ -715,9 +719,9 @@ textarea {
   align-items: flex-end;
 }
 .info-string__string {
-  border: 1px solid #ffffff;
-  background-color: #ffffff;
+  border-bottom: 1px solid #ffffff;
   width: 100%;
+  text-align: center;
 }
 .info-string__info {
   background: rgba(255, 255, 255, 0.23);
@@ -810,6 +814,7 @@ textarea {
   }
   .weather-info__footer {
     gap: 0.2rem;
+    font-size: 0.8rem;
     padding-top: 1rem;
   }
   .weather-info__forecast {
@@ -879,6 +884,7 @@ textarea {
   flex: 0 1 60%;
   padding: 1.42rem;
   font-weight: 200;
+  overflow: hidden;
 }
 
 @media (max-width: 1300px) {
@@ -899,26 +905,51 @@ textarea {
 .cities-info {
   display: flex;
   gap: 1rem;
-  padding-top: 1.35rem;
+  padding-top: 1rem;
 }
 .cities-info__card {
   display: flex;
   align-items: center;
   gap: 1rem;
   flex-direction: column;
-  max-width: 150px;
+  max-width: 100%;
   padding: 0.6rem;
   border-radius: 0.7rem;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid #ffffff;
   cursor: pointer;
-  width: 100%;
+  width: 150px;
+}
+.cities-info__card_active {
+  background: rgba(255, 255, 255, 0.5);
 }
 .cities-info__degree {
   font-size: 1.2rem;
 }
 .cities-info__city-name {
   font-size: 1.2rem;
+}
+
+.arrows {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.arrow {
+  border: solid #ffffff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  cursor: pointer;
+  background-color: inherit;
+}
+.arrow__left {
+  transform: rotate(135deg);
+}
+.arrow__right {
+  transform: rotate(-45deg);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -24,6 +24,7 @@ export interface CityWeather {
   weather: {
     0: {
       icon: string;
+      description: string;
     };
   };
 }

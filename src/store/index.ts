@@ -17,15 +17,22 @@ export default createStore({
       humidity: null,
       wind: null,
       icon: null,
+      description: null,
     };
   },
   getters: {
-    fiveCities(state: RootStore) {
-      const cityCount = 4;
+    fiveCities(state) {
+      const cityCount = 5;
       if (state.cities.length > cityCount) {
-        return state.cities.slice(0, 4);
+        return state.cities.slice(0, 5);
       }
       return state.cities;
+    },
+    capitalizeFirstLetter(state) {
+      const letter = state.description;
+      if (letter) {
+        return letter.slice(0, 1).toUpperCase() + letter.slice(1);
+      }
     },
   },
   mutations: {
@@ -34,6 +41,9 @@ export default createStore({
     },
     setCity(state: RootStore, payload: string) {
       state.cities.unshift(payload);
+    },
+    citiesInLocalStorage(state: RootStore, payload: []) {
+      state.cities = payload;
     },
     setSunrise(state: RootStore, payload: number | null) {
       state.sunriseWeather = payload;
@@ -53,6 +63,9 @@ export default createStore({
     setIcon(state: RootStore, payload: string | null) {
       state.icon = payload;
     },
+    setDescription(state: RootStore, payload: string) {
+      state.description = payload;
+    },
   },
   actions: {
     async getCityWeather(context, URL: string): Promise<object | unknown> {
@@ -61,8 +74,6 @@ export default createStore({
         const result = (await request.json()) as CityWeather;
         const cityName = result.name;
         if (request.status === SERVER_CODE.STATUS_SUCCESS) {
-          setJson(CURRENT_CITY, cityName);
-          setJson(CITIES, result);
           context.commit("setCurrentCity", cityName);
           context.commit("setCity", result);
           context.commit("setSunrise", result.sys.sunrise);
@@ -71,6 +82,9 @@ export default createStore({
           context.commit("setHumidity", result.main.humidity);
           context.commit("setWind", result.wind.speed);
           context.commit("setIcon", result.weather["0"].icon);
+          context.commit("setDescription", result.weather["0"].description);
+          setJson(CURRENT_CITY, cityName);
+          setJson(CITIES, context.getters.fiveCities);
           return result;
         }
       } catch (error: unknown) {

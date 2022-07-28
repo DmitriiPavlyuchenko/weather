@@ -5,9 +5,9 @@
   align-items: flex-end;
 
   &__string {
-    border: 1px solid $white;
-    background-color: $white;
+    border-bottom: 1px solid $white;
     width: 100%;
+    text-align: center;
   }
 
   &__info {

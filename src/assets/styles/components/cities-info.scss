@@ -1,20 +1,24 @@
 .cities-info {
   display: flex;
   gap: 1rem;
-  padding-top: 1.35rem;
+  padding-top: 1rem;
 
   &__card {
     display: flex;
     align-items: center;
     gap: 1rem;
     flex-direction: column;
-    max-width: 150px;
+    max-width: 100%;
     padding: .6rem;
     border-radius: .7rem;
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid $white;
     cursor: pointer;
-    width: 100%;
+    width: 150px;
+  }
+
+  &__card_active {
+    background: rgba(255, 255, 255, 0.5);
   }
 
   &__degree {
@@ -23,5 +27,29 @@
 
   &__city-name {
     font-size: 1.2rem;
+  }
+}
+
+.arrows {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.arrow {
+  border: solid $white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  cursor: pointer;
+  background-color: inherit;
+
+  &__left {
+    transform: rotate(135deg);
+  }
+
+  &__right {
+    transform: rotate(-45deg);
   }
 }

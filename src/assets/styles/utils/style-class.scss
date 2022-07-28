@@ -2,13 +2,17 @@
   color: $white;
   font-size: .8em;
   padding: .65rem;
-  border: none;
+  border: 1px solid $white;
 }
 
 .input::placeholder {
   font-size: .9em;
   color: $white;
   opacity: 1;
+}
+
+.input:focus {
+  border: 1px solid $purple;
 }
 
 .purple {
