@@ -1,19 +1,16 @@
-export const setItem = (key: string, value: string | object): void => {
+export const getItem = (key: string) => {
   try {
-    const json = JSON.stringify(value);
-    localStorage.setItem(key, json);
-  } catch {
-    return;
+    return JSON.parse(localStorage.getItem(key) || "{}");
+  } catch (e) {
+    console.log("Error getting daya in LS");
+    return null;
   }
 };
 
-export const getItem = (key: string): string | void => {
+export const setItem = (key: string, data: unknown) => {
   try {
-    const json = localStorage.getItem(key);
-    if (json !== null) {
-      return JSON.parse(json);
-    }
-  } catch {
-    return;
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch (e) {
+    console.log("Error saving daya in LS");
   }
 };
