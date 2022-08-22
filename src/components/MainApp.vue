@@ -3,7 +3,6 @@
     <HeaderApp></HeaderApp>
     <DayPeriodApp></DayPeriodApp>
     <InfoStringApp></InfoStringApp>
-    <TemperatureApp></TemperatureApp>
   </section>
 </template>
 
@@ -11,11 +10,10 @@
 import HeaderApp from "@/components/HeaderApp";
 import DayPeriodApp from "@/components/DayPeriodApp";
 import InfoStringApp from "@/components/InfoStringApp";
-import TemperatureApp from "@/components/TemperatureApp";
 
 export default {
+  components: { InfoStringApp, HeaderApp, DayPeriodApp },
   name: "MainApp",
-  components: { InfoStringApp, HeaderApp, DayPeriodApp, TemperatureApp },
 };
 </script>
 <style scoped></style>

@@ -32,7 +32,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import { celsiusDegreeConversion } from "@/helpers/temperatureConvert";
 
 export default defineComponent({
@@ -44,9 +44,10 @@ export default defineComponent({
     };
   },
   computed: {
-    ...mapState(["wind", "humidity", "temperatureWeather"]),
+    ...mapState(["humidity", "temperatureWeather"]),
+    ...mapGetters(["wind", "icon"]),
     wind() {
-      return this.$store.state.wind;
+      return this.$store.getters.wind;
     },
     humidity() {
       return this.$store.state.humidity;
@@ -64,7 +65,7 @@ export default defineComponent({
       return this.$store.state.temperatureWeather;
     },
     icon() {
-      return `http://openweathermap.org/img/wn/${this.$store.state.icon}@2x.png`;
+      return this.$store.getters.icon;
     },
   },
   watch: {

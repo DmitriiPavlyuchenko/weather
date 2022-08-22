@@ -1,17 +1,17 @@
 @font-face {
   font-family: 'icon-fonts';
-  src: url('@/assets/img/icons/fonts/icon-fonts.eot?l3kvjv');
-  src: url('@/assets/img/icons/fonts/icon-fonts.eot?l3kvjv#iefix') format('embedded-opentype'),
-  url('@/assets/img/icons/fonts/icon-fonts.ttf?l3kvjv') format('truetype'),
-  url('@/assets/img/icons/fonts/icon-fonts.woff?l3kvjv') format('woff'),
-  url('@/assets/img/icons/fonts/icon-fonts.svg?l3kvjv#icon-fonts') format('svg');
+  src: url('@/assets/img/icons/icon-fonts/icon-fonts.eot?l3kvjv');
+  src: url('@/assets/img/icons/icon-fonts/icon-fonts.eot?l3kvjv#iefix') format('embedded-opentype'),
+  url('@/assets/img/icons/icon-fonts/icon-fonts.ttf?l3kvjv') format('truetype'),
+  url('@/assets/img/icons/icon-fonts/icon-fonts.woff?l3kvjv') format('woff'),
+  url('@/assets/img/icons/icon-fonts/icon-fonts.svg?l3kvjv#icon-fonts') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
 [class^="icon-"]:before, [class*=" icon-"]:before {
-  /* use !important to prevent issues with browser extensions that change fonts */
+  /* use !important to prevent issues with browser extensions that change icon-fonts */
   font-family: 'icon-fonts' !important;
   speak: never;
   font-style: normal;

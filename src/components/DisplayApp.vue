@@ -12,8 +12,8 @@ import SwitchesApp from "@/components/SwitchesApp";
 import CitiesInfoApp from "@/components/CitiesInfoApp";
 
 export default {
-  name: "DisplayApp",
   components: { WeatherInfoApp, SwitchesApp, CitiesInfoApp },
+  name: "DisplayApp",
   emits: ["changeTheme"],
   methods: {
     changeTheme(theme) {

@@ -10,8 +10,8 @@
 <script>
 import DisplayApp from "@/components/DisplayApp";
 import MainApp from "@/components/MainApp";
-import { getJson, setJson } from "@/helpers/localStorage";
-import { DEFAULT_THEME_VALUE, THEME } from "@/constants/values";
+import { getItem, setItem } from "@/helpers/localStorage";
+import { initValues } from "@/constants/values";
 
 export default {
   name: "HomePage",
@@ -27,7 +27,7 @@ export default {
   },
   watch: {
     theme(newValue) {
-      setJson(THEME, newValue);
+      setItem(initValues.THEME, newValue);
     },
   },
   methods: {
@@ -35,9 +35,9 @@ export default {
       this.theme = theme;
     },
     isThemeInLocalStorage() {
-      const currentTheme = getJson(THEME);
+      const currentTheme = getItem(initValues.THEME);
       if (typeof currentTheme === ("undefined" || "null")) {
-        return (this.theme = DEFAULT_THEME_VALUE);
+        return (this.theme = initValues.DEFAULT_THEME_VALUE);
       } else {
         return (this.theme = currentTheme);
       }

@@ -1,20 +1,17 @@
 <template>
-  <div v-if="showPagination" class="arrows">
+  <div v-if="showPagination" class="pagination-block">
     <button
       :disabled="atHeadOfList"
-      class="arrow__left arrow"
+      class="pagination__left pagination"
       @click="moveCarousel(-1)"
     ></button>
     <button
       :disabled="atEndOfList"
-      class="arrow__right arrow"
+      class="pagination__right pagination"
       @click="moveCarousel(1)"
     ></button>
   </div>
-  <div
-    :style="{ transform: 'translateX' + '(' + currentOffSet + 'px' + ')' }"
-    class="cities-info"
-  >
+  <div :style="{ transform: scrollX }" class="cities-info">
     <div
       v-for="(city, index) in getCities"
       :key="city.name"
@@ -30,17 +27,16 @@
         :src="
           'http://openweathermap.org/img/wn/' + city.weather[0].icon + '@2x.png'
         "
-        class="cities-info__weather-img"
+        class="cities-info__weather-icon"
       />
-      <span class="cities-info__city-name">{{ city.name }}</span>
+      <span class="cities-info__city">{{ city.name }}</span>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
-import { getJson } from "@/helpers/localStorage";
-import { CITIES } from "@/constants/values";
+import { mapGetters } from "vuex";
+import { LOCAL_STORAGE } from "@/constants/values";
 
 export default {
   name: "CitiesInfoApp",
@@ -49,6 +45,9 @@ export default {
       activeCity: 0,
       currentOffSet: 0,
     };
+  },
+  mounted() {
+    this.citiesInLocalStorage();
   },
   computed: {
     ...mapGetters(["fiveCities"]),
@@ -64,15 +63,11 @@ export default {
     atHeadOfList() {
       return this.activeCity === 0;
     },
+    scrollX() {
+      return "translateX" + "(" + this.currentOffSet + "px" + ")";
+    },
   },
   methods: {
-    ...mapMutations(["citiesInLocalStorage"]),
-    isCityInLs() {
-      const cities = getJson(CITIES);
-      if (cities) {
-        return this.$store.commit("citiesInLocalStorage", cities);
-      }
-    },
     moveCarousel(direction) {
       if (direction === 1 && !this.atEndOfList) {
         this.activeCity++;
@@ -80,6 +75,12 @@ export default {
       } else if (direction === -1 && !this.atHeadOfList) {
         this.activeCity--;
         this.currentOffSet += 150;
+      }
+    },
+    citiesInLocalStorage() {
+      const cities = localStorage.getItem(LOCAL_STORAGE.CITIES);
+      if (cities) {
+        this.$store.state.cities = JSON.parse(cities);
       }
     },
   },

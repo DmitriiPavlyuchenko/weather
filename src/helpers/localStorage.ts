@@ -1,4 +1,4 @@
-export const setJson = (key: string, value: string | object): void => {
+export const setItem = (key: string, value: string | object): void => {
   try {
     const json = JSON.stringify(value);
     localStorage.setItem(key, json);
@@ -7,7 +7,7 @@ export const setJson = (key: string, value: string | object): void => {
   }
 };
 
-export const getJson = (key: string): string | void => {
+export const getItem = (key: string): string | void => {
   try {
     const json = localStorage.getItem(key);
     if (json !== null) {

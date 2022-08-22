@@ -8,15 +8,15 @@
 <script>
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
+import ClockApp from "@/components/ClockApp";
 import { convertTime } from "@/helpers/unixConverter";
 import { CLOCK_TITLE } from "@/constants/clock";
-import ClockApp from "@/components/ClockApp";
 
 export default defineComponent({
-  name: "DayPeriodApp",
   SUNRISE: CLOCK_TITLE.SUNRISE,
   SUNSET: CLOCK_TITLE.SUNSET,
   components: { ClockApp },
+  name: "DayPeriodApp",
   data() {
     return {
       sunrise: "",

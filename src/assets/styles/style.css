@@ -1,4 +1,4 @@
-@import "@/assets/img/icons/fonts/style.css";
+@import "@/assets/img/icons/icon-fonts/style.css";
 @font-face {
   font-family: "Overpass";
   font-weight: 400;
@@ -860,8 +860,11 @@ textarea {
 
 .main {
   flex: 0 1 40%;
+  display: flex;
   padding: 1.42rem;
   background: radial-gradient(100% 100% at 0% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  flex-direction: column;
+  justify-content: space-evenly;
   box-shadow: inset -5px -5px 250px rgba(255, 255, 255, 0.02);
 }
 
@@ -930,14 +933,16 @@ textarea {
   font-size: 1.2rem;
 }
 
-.arrows {
+.pagination-block {
   padding-top: 1rem;
   display: flex;
   justify-content: center;
   gap: 5rem;
+  width: 200px;
+  margin: 0 auto;
 }
 
-.arrow {
+.pagination {
   border: solid #ffffff;
   border-width: 0 3px 3px 0;
   display: inline-block;
@@ -945,10 +950,10 @@ textarea {
   cursor: pointer;
   background-color: inherit;
 }
-.arrow__left {
+.pagination__left {
   transform: rotate(135deg);
 }
-.arrow__right {
+.pagination__right {
   transform: rotate(-45deg);
 }
 

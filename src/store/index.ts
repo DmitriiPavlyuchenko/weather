@@ -3,8 +3,8 @@ import { RootStore } from "@/interfaces/store/root";
 import { getCityWeather } from "@/api/weather";
 import { CityWeather, Response } from "@/interfaces/response";
 import { SERVER_CODE } from "@/constants/api";
-import { setJson } from "@/helpers/localStorage";
-import { CITIES, CURRENT_CITY } from "@/constants/values";
+import { setItem } from "@/helpers/localStorage";
+import { LOCAL_STORAGE } from "@/constants/values";
 
 export default createStore({
   state: (): RootStore => {
@@ -17,7 +17,7 @@ export default createStore({
       humidity: null,
       wind: null,
       icon: null,
-      description: null,
+      infoString: null,
     };
   },
   getters: {
@@ -28,10 +28,22 @@ export default createStore({
       }
       return state.cities;
     },
-    capitalizeFirstLetter(state) {
-      const letter = state.description;
+    capitalizeFirstLetter(state: RootStore) {
+      const letter = state.infoString;
       if (letter) {
         return letter.slice(0, 1).toUpperCase() + letter.slice(1);
+      }
+    },
+    wind(state: RootStore) {
+      const wind = state.wind;
+      if (wind) {
+        return wind.toFixed();
+      }
+    },
+    icon(state: RootStore) {
+      const icon = state.icon;
+      if (icon) {
+        return `http://openweathermap.org/img/wn/${icon}@2x.png`;
       }
     },
   },
@@ -64,7 +76,7 @@ export default createStore({
       state.icon = payload;
     },
     setDescription(state: RootStore, payload: string) {
-      state.description = payload;
+      state.infoString = payload;
     },
   },
   actions: {
@@ -83,8 +95,8 @@ export default createStore({
           context.commit("setWind", result.wind.speed);
           context.commit("setIcon", result.weather["0"].icon);
           context.commit("setDescription", result.weather["0"].description);
-          setJson(CURRENT_CITY, cityName);
-          setJson(CITIES, context.getters.fiveCities);
+          setItem(LOCAL_STORAGE.CURRENT_CITY, cityName);
+          setItem(LOCAL_STORAGE.CITIES, context.getters.fiveCities);
           return result;
         }
       } catch (error: unknown) {
