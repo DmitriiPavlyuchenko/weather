@@ -44,6 +44,9 @@ export default defineComponent({
       iconWeather: "",
     };
   },
+  mounted() {
+    this.updateDate();
+  },
   computed: {
     ...mapGetters(["cityWeather"]),
     wind() {
@@ -74,6 +77,14 @@ export default defineComponent({
     },
     icon(newValue) {
       this.iconWeather = `http://openweathermap.org/img/wn/${newValue}@2x.png`;
+    },
+  },
+  methods: {
+    updateDate() {
+      setTimeout(() => {
+        this.currentDate = new Date();
+        this.updateDate();
+      }, 1000);
     },
   },
 });
