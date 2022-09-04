@@ -26,6 +26,7 @@ import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
 import { API, SERVER_CODE } from "@/constants/api";
 import { initValues, LOCAL_STORAGE } from "@/constants/values";
+import { getItem } from "@/helpers/localStorage";
 
 export default defineComponent({
   name: "FormSearchApp",
@@ -74,12 +75,15 @@ export default defineComponent({
         }
       } catch (e) {
         console.log(e);
+      } finally {
+        this.cityName = "";
+        this.closeForm();
       }
     },
     isCityInLocalStorage() {
-      const currentCity = localStorage.getItem(LOCAL_STORAGE.CURRENT_CITY);
-      if (currentCity) {
-        this.cityName = JSON.parse(currentCity);
+      const currentCity = getItem(LOCAL_STORAGE.CURRENT_CITY);
+      if (Object.keys(currentCity).length === 0) {
+        this.cityName = currentCity;
       } else {
         this.cityName = initValues.SAINT_PETERSBURG;
       }

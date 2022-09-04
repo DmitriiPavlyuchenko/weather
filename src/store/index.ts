@@ -35,12 +35,18 @@ export default createStore({
     async getCityWeather(context, data: CityData): Promise<object | unknown> {
       try {
         const storage = getItem("cities");
-        const isCityInStore = storage
-          .map((element) => element.name)
-          .includes(data.cityName);
-        if (isCityInStore) {
-          return "This city in storage";
+
+        let isCityInStore;
+        if (Array.isArray(storage)) {
+          isCityInStore = storage
+            .map((element) => element.name)
+            .includes(data.cityName);
         }
+
+        if (isCityInStore) {
+          return "error";
+        }
+
         const request = (await getCityWeather(data.URL)) as Response;
         const result = (await request.json()) as CityWeather;
         if (request.status === SERVER_CODE.STATUS_SUCCESS) {

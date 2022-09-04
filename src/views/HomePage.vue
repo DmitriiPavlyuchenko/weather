@@ -33,13 +33,14 @@ export default {
   methods: {
     changeTheme(theme) {
       this.theme = theme;
+      setItem(initValues.THEME, this.theme);
     },
     isThemeInLocalStorage() {
       const currentTheme = getItem(initValues.THEME);
-      if (typeof currentTheme === ("undefined" || "null")) {
-        return (this.theme = initValues.DEFAULT_THEME_VALUE);
+      if (Object.keys(currentTheme).length === 0) {
+        this.changeTheme(initValues.DEFAULT_THEME_VALUE);
       } else {
-        return (this.theme = currentTheme);
+        this.theme = currentTheme;
       }
     },
   },
