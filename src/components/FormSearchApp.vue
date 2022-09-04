@@ -75,17 +75,14 @@ export default defineComponent({
         }
       } catch (e) {
         console.log(e);
-      } finally {
-        this.cityName = "";
-        this.closeForm();
       }
     },
     isCityInLocalStorage() {
       const currentCity = getItem(LOCAL_STORAGE.CURRENT_CITY);
       if (Object.keys(currentCity).length === 0) {
-        this.cityName = currentCity;
-      } else {
         this.cityName = initValues.SAINT_PETERSBURG;
+      } else {
+        this.cityName = currentCity;
       }
     },
   },

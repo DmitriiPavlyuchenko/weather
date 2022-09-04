@@ -11,7 +11,11 @@
       @click="moveCarousel(1)"
     ></button>
   </div>
-  <div :style="{ transform: scrollX }" class="cities-info">
+  <div
+    v-if="getCities.length > 0"
+    :style="{ transform: scrollX }"
+    class="cities-info"
+  >
     <div
       v-for="(city, index) in getCities"
       :key="city.name"

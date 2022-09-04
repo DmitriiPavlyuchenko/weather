@@ -28,38 +28,43 @@ export default createStore({
   mutations: {
     SET_CITY_WEATHER(state: RootStore, payload) {
       state.cityWeather = payload;
+    },
+    SET_CITY(state, payload) {
       state.cities.unshift(payload);
     },
   },
   actions: {
     async getCityWeather(context, data: CityData): Promise<object | unknown> {
       try {
-        const storage = getItem("cities");
-
-        let isCityInStore;
-        if (Array.isArray(storage)) {
-          isCityInStore = storage
-            .map((element) => element.name)
-            .includes(data.cityName);
-        }
-
-        if (isCityInStore) {
-          return "error";
-        }
+        const isCityInStore = context.dispatch(
+          "isCityInStorage",
+          data.cityName
+        );
 
         const request = (await getCityWeather(data.URL)) as Response;
         const result = (await request.json()) as CityWeather;
         if (request.status === SERVER_CODE.STATUS_SUCCESS) {
           const cityName = result.name;
+          if (!isCityInStore) {
+            context.commit("SET_CITY", result);
+            setItem(LOCAL_STORAGE.CURRENT_CITY, cityName);
+            setItem(LOCAL_STORAGE.CITIES, context.getters.fiveCities);
+          }
           context.commit("SET_CITY_WEATHER", result);
-          setItem(LOCAL_STORAGE.CURRENT_CITY, cityName);
-          setItem(LOCAL_STORAGE.CITIES, context.getters.fiveCities);
           return result;
         }
       } catch (error) {
         const result = error;
         return result;
       }
+    },
+    isCityInStorage(context, data): boolean {
+      const storage = getItem("cities");
+      let isCityInStore;
+      if (Array.isArray(storage)) {
+        isCityInStore = storage.map((element) => element.name).includes(data);
+      }
+      return isCityInStore;
     },
   },
 });
