@@ -1,13 +1,13 @@
 <template>
   <div v-show="!isOpen" class="city">
     <i class="city__map icon-map" />
-    <span class="city__name">{{ currentCity }}</span>
+    <span class="city__name">{{ cityWeather.name }}</span>
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 
 export default defineComponent({
   name: "CityApp",
@@ -18,10 +18,7 @@ export default defineComponent({
     },
   },
   computed: {
-    ...mapState({ currentCity: "currentCity" }),
-    currentCity() {
-      return this.$store.state.currentCity;
-    },
+    ...mapGetters(["cityWeather"]),
   },
 });
 </script>

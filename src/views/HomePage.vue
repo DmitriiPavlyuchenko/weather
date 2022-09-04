@@ -22,7 +22,7 @@ export default {
       theme: "",
     };
   },
-  created() {
+  mounted() {
     this.isThemeInLocalStorage();
   },
   watch: {

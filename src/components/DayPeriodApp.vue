@@ -7,7 +7,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
+import { mapGetters } from "vuex";
 import ClockApp from "@/components/ClockApp";
 import { convertTime } from "@/helpers/unixConverter";
 import { CLOCK_TITLE } from "@/constants/clock";
@@ -24,12 +24,12 @@ export default defineComponent({
     };
   },
   computed: {
-    ...mapState(["sunriseWeather", "sunsetWeather"]),
+    ...mapGetters(["cityWeather"]),
     setSunriseWeather() {
-      return this.sunriseWeather;
+      return this.cityWeather.sys?.sunrise;
     },
     setSunsetWeather() {
-      return this.sunsetWeather;
+      return this.cityWeather.sys?.sunset;
     },
   },
   watch: {

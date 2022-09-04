@@ -8,7 +8,7 @@
 
 <script>
 import WeatherInfoApp from "@/components/WeatherInfoApp";
-import SwitchesApp from "@/components/SwitchesApp";
+import SwitchesApp from "@/components/SwitchesThemeApp";
 import CitiesInfoApp from "@/components/CitiesInfoApp";
 
 export default {

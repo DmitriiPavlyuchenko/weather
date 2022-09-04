@@ -62,10 +62,15 @@ export default defineComponent({
         let cityName = this.cityName;
         const serverUrl = API.getWeatherPath;
         const URL = `${serverUrl}?q=${cityName}&appid=${API.apiKey}`;
-        const result = await this.$store.dispatch("getCityWeather", URL);
+        const result = await this.$store.dispatch("getCityWeather", {
+          URL,
+          cityName,
+        });
         if (result.cod === SERVER_CODE.STATUS_SUCCESS) {
           this.cityName = "";
           this.closeForm();
+        } else {
+          throw new Error(result);
         }
       } catch (e) {
         console.log(e);

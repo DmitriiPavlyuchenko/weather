@@ -1,26 +1,22 @@
 import { createStore } from "vuex";
 import { RootStore } from "@/interfaces/store/root";
 import { getCityWeather } from "@/api/weather";
-import { CityWeather, Response } from "@/interfaces/response";
+import { CityData, CityWeather, Response } from "@/interfaces/response";
 import { SERVER_CODE } from "@/constants/api";
-import { setItem } from "@/helpers/localStorage";
+import { getItem, setItem } from "@/helpers/localStorage";
 import { LOCAL_STORAGE } from "@/constants/values";
 
 export default createStore({
   state: (): RootStore => {
     return {
-      currentCity: "",
+      cityWeather: {},
       cities: [],
-      sunriseWeather: null,
-      sunsetWeather: null,
-      temperatureWeather: null,
-      humidity: null,
-      wind: null,
-      icon: null,
-      infoString: null,
     };
   },
   getters: {
+    cityWeather(state) {
+      return state.cityWeather;
+    },
     fiveCities(state) {
       const cityCount = 5;
       if (state.cities.length > cityCount) {
@@ -28,78 +24,33 @@ export default createStore({
       }
       return state.cities;
     },
-    capitalizeFirstLetter(state: RootStore) {
-      const letter = state.infoString;
-      if (letter) {
-        return letter.slice(0, 1).toUpperCase() + letter.slice(1);
-      }
-    },
-    wind(state: RootStore) {
-      const wind = state.wind;
-      if (wind) {
-        return wind.toFixed();
-      }
-    },
-    icon(state: RootStore) {
-      const icon = state.icon;
-      if (icon) {
-        return `http://openweathermap.org/img/wn/${icon}@2x.png`;
-      }
-    },
   },
   mutations: {
-    setCurrentCity(state: RootStore, payload: string) {
-      state.currentCity = payload;
-    },
-    setCity(state: RootStore, payload: string) {
+    SET_CITY_WEATHER(state: RootStore, payload) {
+      state.cityWeather = payload;
       state.cities.unshift(payload);
-    },
-    citiesInLocalStorage(state: RootStore, payload: []) {
-      state.cities = payload;
-    },
-    setSunrise(state: RootStore, payload: number | null) {
-      state.sunriseWeather = payload;
-    },
-    setSunset(state: RootStore, payload: number | null) {
-      state.sunsetWeather = payload;
-    },
-    setTemperature(state: RootStore, payload: number | null) {
-      state.temperatureWeather = payload;
-    },
-    setHumidity(state: RootStore, payload: number | null) {
-      state.humidity = payload;
-    },
-    setWind(state: RootStore, payload: number | null) {
-      state.wind = payload;
-    },
-    setIcon(state: RootStore, payload: string | null) {
-      state.icon = payload;
-    },
-    setDescription(state: RootStore, payload: string) {
-      state.infoString = payload;
     },
   },
   actions: {
-    async getCityWeather(context, URL: string): Promise<object | unknown> {
+    async getCityWeather(context, data: CityData): Promise<object | unknown> {
       try {
-        const request = (await getCityWeather(URL)) as Response;
+        const storage = getItem("cities");
+        const isCityInStore = storage
+          .map((element) => element.name)
+          .includes(data.cityName);
+        if (isCityInStore) {
+          return "This city in storage";
+        }
+        const request = (await getCityWeather(data.URL)) as Response;
         const result = (await request.json()) as CityWeather;
-        const cityName = result.name;
         if (request.status === SERVER_CODE.STATUS_SUCCESS) {
-          context.commit("setCurrentCity", cityName);
-          context.commit("setCity", result);
-          context.commit("setSunrise", result.sys.sunrise);
-          context.commit("setSunset", result.sys.sunset);
-          context.commit("setTemperature", result.main.temp);
-          context.commit("setHumidity", result.main.humidity);
-          context.commit("setWind", result.wind.speed);
-          context.commit("setIcon", result.weather["0"].icon);
-          context.commit("setDescription", result.weather["0"].description);
+          const cityName = result.name;
+          context.commit("SET_CITY_WEATHER", result);
           setItem(LOCAL_STORAGE.CURRENT_CITY, cityName);
           setItem(LOCAL_STORAGE.CITIES, context.getters.fiveCities);
           return result;
         }
-      } catch (error: unknown) {
+      } catch (error) {
         const result = error;
         return result;
       }

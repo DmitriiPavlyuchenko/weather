@@ -9,22 +9,9 @@ export interface Response {
 
 export interface CityWeather {
   name: string;
-  sys: {
-    sunrise: number;
-    sunset: number;
-  };
-  main: {
-    temp: number;
-    humidity: number;
-    pressure: number;
-  };
-  wind: {
-    speed: number;
-  };
-  weather: {
-    0: {
-      icon: string;
-      description: string;
-    };
-  };
+}
+
+export interface CityData {
+  URL: string;
+  cityName: string;
 }

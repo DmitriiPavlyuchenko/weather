@@ -4,7 +4,7 @@
       <span class="weather-info__degrees">
         {{ temperature }} <span class="weather-info__degree-sign">°с</span>
       </span>
-      <img :src="icon" alt="Weather" class="weather-info__img" />
+      <img :src="iconWeather" alt="Weather" class="weather-info__img" />
     </div>
     <div class="weather-info__body">
       <span class="weather-info__date">{{ convertDate }}</span>
@@ -32,8 +32,8 @@
 
 <script>
 import { defineComponent } from "vue";
-import { mapGetters, mapState } from "vuex";
 import { celsiusDegreeConversion } from "@/helpers/temperatureConvert";
+import { mapGetters } from "vuex";
 
 export default defineComponent({
   name: "WeatherInfoApp",
@@ -41,16 +41,16 @@ export default defineComponent({
     return {
       currentDate: new Date(),
       temperature: "",
+      iconWeather: "",
     };
   },
   computed: {
-    ...mapState(["humidity", "temperatureWeather"]),
-    ...mapGetters(["wind", "icon"]),
+    ...mapGetters(["cityWeather"]),
     wind() {
-      return this.$store.getters.wind;
+      return this.cityWeather.wind?.speed;
     },
     humidity() {
-      return this.$store.state.humidity;
+      return this.cityWeather.main?.humidity;
     },
     convertDate() {
       return this.currentDate.toLocaleString().split(",").slice(0, 1).join();
@@ -62,15 +62,18 @@ export default defineComponent({
       return this.currentDate.toLocaleString().split(",").slice(1).join();
     },
     unixTemperature() {
-      return this.$store.state.temperatureWeather;
+      return this.cityWeather.main?.temp;
     },
     icon() {
-      return this.$store.getters.icon;
+      return this.cityWeather.weather?.[0].icon;
     },
   },
   watch: {
     unixTemperature(newValue) {
       this.temperature = celsiusDegreeConversion(newValue);
+    },
+    icon(newValue) {
+      this.iconWeather = `http://openweathermap.org/img/wn/${newValue}@2x.png`;
     },
   },
 });

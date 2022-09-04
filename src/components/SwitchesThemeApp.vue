@@ -18,7 +18,7 @@ export default defineComponent({
   },
   methods: {
     changeTheme(event) {
-      let element = event.target.classList;
+      const element = event.target.classList;
       if (element.contains("switcher-theme__purple")) {
         this.theme = "purple";
       } else if (element.contains("switcher-theme__blue")) {

@@ -727,7 +727,6 @@ textarea {
   background: rgba(255, 255, 255, 0.23);
   padding: 0.25rem 0.71rem 0.14rem;
   border-radius: 3.57rem;
-  cursor: pointer;
 }
 
 @media (max-width: 998px) {
