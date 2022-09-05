@@ -3,7 +3,7 @@ export const getItem = (key: string) => {
     return JSON.parse(localStorage.getItem(key) || "{}");
   } catch (e) {
     console.log("Error getting daya in LS");
-    return null;
+    return;
   }
 };
 

@@ -13,5 +13,5 @@ export interface CityWeather {
 
 export interface CityData {
   URL: string;
-  cityName: string;
+  cityName?: string;
 }

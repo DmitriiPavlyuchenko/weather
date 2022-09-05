@@ -1,4 +1,4 @@
 export interface RootStore {
-  cities: string[];
+  cities: object[];
   cityWeather: object | null;
 }

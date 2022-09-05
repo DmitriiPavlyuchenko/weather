@@ -1,16 +1,18 @@
 <template>
-  <form v-show="isOpen" class="search-form form" @submit.prevent>
+  <form v-show="isOpen" class="search-form form" @click.stop @submit.prevent>
     <InputBase
       v-model.capitalize="cityName"
       class="search-form__search-field"
       placeholder="Enter city..."
       type="text"
-    ></InputBase>
+      @blur="closeForm"
+    >
+    </InputBase>
     <ButtonBase
       :disabled="isCityNameEmpty"
       class="search-form__search"
       type="submit"
-      @click="getCityWeather"
+      @click="getCityWeather(cityName)"
       ><img
         alt="Search"
         class="main__search"
@@ -25,8 +27,8 @@
 import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
 import { API, SERVER_CODE } from "@/constants/api";
-import { initValues, LOCAL_STORAGE } from "@/constants/values";
 import { getItem } from "@/helpers/localStorage";
+import { initValues, LOCAL_STORAGE } from "@/constants/values";
 
 export default defineComponent({
   name: "FormSearchApp",
@@ -44,7 +46,7 @@ export default defineComponent({
   },
   created() {
     this.isCityInLocalStorage();
-    this.getCityWeather();
+    // this.subscribeToUpdateWeather();
   },
   computed: {
     isCityNameEmpty() {
@@ -58,20 +60,20 @@ export default defineComponent({
     closeForm() {
       this.$emit("closeForm", true);
     },
-    async getCityWeather() {
+    async getCityWeather(city) {
       try {
-        let cityName = this.cityName;
-        const serverUrl = API.getWeatherPath;
-        const URL = `${serverUrl}?q=${cityName}&appid=${API.apiKey}`;
-        const result = await this.$store.dispatch("getCityWeather", {
+        let cityName = city;
+        const serverUrl = API.GET_WEATHER_PATH;
+        const URL = `${serverUrl}?q=${cityName}&appid=${API.API_KEY}`;
+        const response = await this.$store.dispatch("getCityWeather", {
           URL,
           cityName,
         });
-        if (result.cod === SERVER_CODE.STATUS_SUCCESS) {
+        if (response.cod === SERVER_CODE.STATUS_SUCCESS) {
           this.cityName = "";
           this.closeForm();
         } else {
-          throw new Error(result);
+          throw new Error(response);
         }
       } catch (e) {
         console.log(e);
@@ -79,12 +81,21 @@ export default defineComponent({
     },
     isCityInLocalStorage() {
       const currentCity = getItem(LOCAL_STORAGE.CURRENT_CITY);
-      if (Object.keys(currentCity).length === 0) {
-        this.cityName = initValues.SAINT_PETERSBURG;
+      const isCurrentCityEmpty = Object.keys(currentCity).length === 0;
+      if (isCurrentCityEmpty) {
+        this.getCityWeather(initValues.SAINT_PETERSBURG);
       } else {
-        this.cityName = currentCity;
+        this.getCityWeather(currentCity);
       }
     },
+    // subscribeToUpdateWeather() {
+    //   const isCitiesInLs = getItem(LOCAL_STORAGE.CITIES);
+    //   if (Object.keys(isCitiesInLs).length !== 0) {
+    //     isCitiesInLs.forEach((city) => {
+    //       this.getCityWeather(city.name);
+    //     });
+    //   }
+    // },
   },
 });
 </script>

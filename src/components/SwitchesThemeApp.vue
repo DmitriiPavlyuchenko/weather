@@ -14,7 +14,27 @@ export default defineComponent({
   data() {
     return {
       theme: "purple",
+      width: null,
     };
+  },
+  created() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+  },
+  unmounted() {
+    window.removeEventListener("resize", this.handleResize);
+  },
+  watch: {
+    width() {
+      const switcher = document.querySelector(".switcher-theme");
+      if (this.width < 760) {
+        const main = document.querySelector("#main");
+        main.prepend(switcher);
+      } else {
+        const display = document.querySelector(".display");
+        display.prepend(switcher);
+      }
+    },
   },
   methods: {
     changeTheme(event) {
@@ -27,6 +47,9 @@ export default defineComponent({
         this.theme = "red";
       }
       this.$emit("change", this.theme);
+    },
+    handleResize() {
+      this.width = window.innerWidth;
     },
   },
 });

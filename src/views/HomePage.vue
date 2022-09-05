@@ -11,7 +11,8 @@
 import DisplayApp from "@/components/DisplayApp";
 import MainApp from "@/components/MainApp";
 import { getItem, setItem } from "@/helpers/localStorage";
-import { initValues } from "@/constants/values";
+import { initValues, LOCAL_STORAGE } from "@/constants/values";
+import { mapActions } from "vuex";
 
 export default {
   name: "HomePage",
@@ -24,6 +25,7 @@ export default {
   },
   mounted() {
     this.isThemeInLocalStorage();
+    this.isCityInLocalStorage();
   },
   watch: {
     theme(newValue) {
@@ -31,16 +33,27 @@ export default {
     },
   },
   methods: {
+    ...mapActions(["getCityWeather"]),
     changeTheme(theme) {
       this.theme = theme;
       setItem(initValues.THEME, this.theme);
     },
     isThemeInLocalStorage() {
       const currentTheme = getItem(initValues.THEME);
-      if (Object.keys(currentTheme).length === 0) {
+      const isCurrentThemeEmpty = Object.keys(currentTheme).length === 0;
+      if (isCurrentThemeEmpty) {
         this.changeTheme(initValues.DEFAULT_THEME_VALUE);
       } else {
-        this.theme = currentTheme;
+        this.changeTheme(currentTheme);
+      }
+    },
+    isCityInLocalStorage() {
+      const currentCity = getItem(LOCAL_STORAGE.CURRENT_CITY);
+      const isCurrentCityEmpty = Object.keys(currentCity).length === 0;
+      if (isCurrentCityEmpty) {
+        this.getCityWeather(initValues.SAINT_PETERSBURG);
+      } else {
+        this.getCityWeather(currentCity);
       }
     },
   },
