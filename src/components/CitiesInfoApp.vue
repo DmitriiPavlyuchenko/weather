@@ -41,6 +41,7 @@
 <script>
 import { mapGetters } from "vuex";
 import { LOCAL_STORAGE } from "@/constants/values";
+import { getItem } from "@/helpers/localStorage";
 
 export default {
   name: "CitiesInfoApp",
@@ -82,9 +83,9 @@ export default {
       }
     },
     citiesInLocalStorage() {
-      const cities = localStorage.getItem(LOCAL_STORAGE.CITIES);
+      const cities = getItem(LOCAL_STORAGE.CITIES);
       if (cities) {
-        this.$store.state.cities = JSON.parse(cities);
+        this.$store.state.cities = cities;
       }
     },
   },

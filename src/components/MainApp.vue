@@ -1,5 +1,5 @@
 <template>
-  <section class="main">
+  <section id="main" class="main">
     <HeaderApp></HeaderApp>
     <DayPeriodApp></DayPeriodApp>
     <InfoStringApp></InfoStringApp>

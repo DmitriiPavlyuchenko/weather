@@ -1,6 +1,7 @@
 .switcher-theme {
   display: flex;
   gap: .17rem;
+  padding: .5rem 0;
 
   &__purple {
     background-color: $purple;

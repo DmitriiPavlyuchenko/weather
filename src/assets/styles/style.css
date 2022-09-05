@@ -596,6 +596,11 @@ textarea {
     padding: 0.5rem;
   }
 }
+@media (max-width: 780px) {
+  .header {
+    height: 2rem;
+  }
+}
 .clock {
   text-align: center;
   align-self: flex-end;
@@ -838,6 +843,7 @@ textarea {
 .switcher-theme {
   display: flex;
   gap: 0.17rem;
+  padding: 0.5rem 0;
 }
 .switcher-theme__purple {
   background-color: #885ffc;
