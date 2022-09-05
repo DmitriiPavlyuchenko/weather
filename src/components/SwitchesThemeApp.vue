@@ -26,8 +26,9 @@ export default defineComponent({
   },
   watch: {
     width() {
+      const displayWidth = 781;
       const switcher = document.querySelector(".switcher-theme");
-      if (this.width < 760) {
+      if (this.width < displayWidth) {
         const main = document.querySelector("#main");
         main.prepend(switcher);
       } else {

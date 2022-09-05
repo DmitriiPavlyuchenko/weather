@@ -581,6 +581,7 @@ textarea {
   display: flex;
   justify-content: space-between;
   gap: 0.5em;
+  height: 2.5rem;
 }
 .header__form-open {
   display: flex;
