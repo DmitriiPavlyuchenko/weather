@@ -59,7 +59,7 @@ export default defineComponent({
       return this.currentDate.toLocaleString().split(",").slice(0, 1).join();
     },
     convertDay() {
-      return this.currentDate.toDateString().split(" ").slice(0, 1).join("");
+      return this.currentDate.toDateString().split(" ").slice(0, 1).join();
     },
     convertTime() {
       return this.currentDate.toLocaleString().split(",").slice(1).join();
@@ -89,5 +89,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped></style>

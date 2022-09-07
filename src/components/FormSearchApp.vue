@@ -25,10 +25,11 @@
 
 <script>
 import { defineComponent } from "vue";
-import { mapActions, mapState } from "vuex";
-import { API, SERVER_CODE } from "@/constants/api";
+import { mapActions } from "vuex";
+import { SERVER_CODE } from "@/constants/api";
 import { getItem } from "@/helpers/localStorage";
 import { initValues, LOCAL_STORAGE } from "@/constants/values";
+import { DEFAULT_ERROR_TOAST_CONFIG } from "@/constants/toast";
 
 export default defineComponent({
   name: "FormSearchApp",
@@ -46,7 +47,6 @@ export default defineComponent({
   },
   created() {
     this.isCityInLocalStorage();
-    // this.subscribeToUpdateWeather();
   },
   computed: {
     isCityNameEmpty() {
@@ -56,48 +56,33 @@ export default defineComponent({
   },
   methods: {
     ...mapActions(["getCityWeather"]),
-    ...mapState(["cities"]),
     closeForm() {
       this.$emit("closeForm", true);
     },
     async getCityWeather(city) {
       try {
-        let cityName = city;
-        const serverUrl = API.GET_WEATHER_PATH;
-        const URL = `${serverUrl}?q=${cityName}&appid=${API.API_KEY}`;
-        const response = await this.$store.dispatch("getCityWeather", {
-          URL,
-          cityName,
-        });
-        if (response.cod === SERVER_CODE.STATUS_SUCCESS) {
+        const response = await this.$store.dispatch("getCityWeather", city);
+
+        if (response.cod === SERVER_CODE.CODE_200) {
           this.cityName = "";
           this.closeForm();
         } else {
-          throw new Error(response);
+          throw new Error(response.message);
         }
-      } catch (e) {
-        console.log(e);
+      } catch (error) {
+        this.$toast.show(error, DEFAULT_ERROR_TOAST_CONFIG);
       }
     },
     isCityInLocalStorage() {
       const currentCity = getItem(LOCAL_STORAGE.CURRENT_CITY);
       const isCurrentCityEmpty = Object.keys(currentCity).length === 0;
+
       if (isCurrentCityEmpty) {
         this.getCityWeather(initValues.SAINT_PETERSBURG);
       } else {
         this.getCityWeather(currentCity);
       }
     },
-    // subscribeToUpdateWeather() {
-    //   const isCitiesInLs = getItem(LOCAL_STORAGE.CITIES);
-    //   if (Object.keys(isCitiesInLs).length !== 0) {
-    //     isCitiesInLs.forEach((city) => {
-    //       this.getCityWeather(city.name);
-    //     });
-    //   }
-    // },
   },
 });
 </script>
-
-<style scoped></style>

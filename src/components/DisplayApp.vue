@@ -14,7 +14,7 @@ import CitiesInfoApp from "@/components/CitiesInfoApp";
 export default {
   components: { WeatherInfoApp, SwitchesApp, CitiesInfoApp },
   name: "DisplayApp",
-  emits: ["changeTheme"],
+  emits: ["change"],
   methods: {
     changeTheme(theme) {
       this.$emit("change", theme);
@@ -22,5 +22,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>
