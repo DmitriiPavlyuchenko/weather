@@ -11,13 +11,14 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "SwitchesApp",
+  emits: ["change"],
   data() {
     return {
       theme: "purple",
       width: null,
     };
   },
-  created() {
+  mounted() {
     window.addEventListener("resize", this.handleResize);
     this.handleResize();
   },
@@ -28,6 +29,7 @@ export default defineComponent({
     width() {
       const displayWidth = 781;
       const switcher = document.querySelector(".switcher-theme");
+
       if (this.width < displayWidth) {
         const main = document.querySelector("#main");
         main.prepend(switcher);
@@ -40,6 +42,7 @@ export default defineComponent({
   methods: {
     changeTheme(event) {
       const element = event.target.classList;
+
       if (element.contains("switcher-theme__purple")) {
         this.theme = "purple";
       } else if (element.contains("switcher-theme__blue")) {
@@ -55,5 +58,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped></style>

@@ -2,9 +2,12 @@
   display: flex;
   gap: 1rem;
   padding-top: 1rem;
+  text-align: center;
+  scroll-snap-type: y mandatory;
 
   &__card {
     display: flex;
+    scroll-snap-align: start;
     align-items: center;
     gap: 1rem;
     flex-direction: column;
@@ -14,7 +17,9 @@
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid $white;
     cursor: pointer;
-    width: 150px;
+    width: 200px;
+    flex-shrink: 0;
+    position: relative;
   }
 
   &__card_active {
@@ -27,6 +32,18 @@
 
   &__city-name {
     font-size: 1.2rem;
+  }
+
+  &__delete {
+    position: absolute;
+    top: 1%;
+    right: 5%;
+    background: none;
+    color: $white
+  }
+
+  &__delete:hover {
+    color: $grey;
   }
 }
 

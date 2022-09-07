@@ -19,6 +19,7 @@
 
     &__form-open {
       padding: .5rem;
+      width: 20%;
     }
   }
 }
@@ -26,5 +27,9 @@
 @media (max-width: 780px) {
   .header {
     height: 2rem;
+
+    &__form-open {
+      width: auto;
+    }
   }
 }
