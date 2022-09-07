@@ -4,5 +4,5 @@ export const API = {
 };
 
 export const SERVER_CODE = {
-  STATUS_SUCCESS: 200,
+  CODE_200: 200,
 };

@@ -10,8 +10,3 @@ export interface Response {
 export interface CityWeather {
   name: string;
 }
-
-export interface CityData {
-  URL: string;
-  cityName?: string;
-}
